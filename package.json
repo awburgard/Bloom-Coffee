@@ -1,0 +1,26 @@
+{
+  "name": "solo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "pg": "^7.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awburgard/bloom_coffee.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/awburgard/bloom_coffee/issues"
+  },
+  "homepage": "https://github.com/awburgard/bloom_coffee#readme"
+}

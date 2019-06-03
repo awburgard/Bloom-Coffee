@@ -38,6 +38,4 @@ CREATE TABLE "tasting_journal" (
     "balance" INTEGER,
     "clean_cup" INTEGER,
     "uniformity" INTEGER
-    
-    
 );
