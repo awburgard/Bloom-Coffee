@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../modules/pool');
 
 router.get('/', (req, res) => {
-    const queryString = `SELECT * FROM "users"`;
+    const queryString = `SELECT * FROM "coffee_shop"`;
 
     pool.query(queryString)
         .then((response) => {

@@ -1,4 +1,4 @@
-const pg = require('./node_modules/pg');
+const pg = require('pg');
 const url = require('url');
 let config = {};
 
