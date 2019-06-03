@@ -3,7 +3,9 @@ const router = express.Router();
 const pool = require('../modules/pool');
 
 router.get('/', (req, res) => {
-    const queryString = `SELECT * FROM "tasting_journal"`;
+    const queryString = `SELECT * FROM "users"
+                        JOIN "tasting_journal" ON "users"."user_id" = "tasting_journal"."user_id"
+                        JOIN "coffee_shop" ON "tasting_journal"."coffee_shop_id" = "coffee_shop"."coffee_shop_id";`;
 
     pool.query(queryString)
         .then((response) => {
@@ -18,7 +20,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     const queryString = `INSERT INTO "tasting_journal" ("coffee_name", "coffee_shop_id", "user_id", "description", "overall",
                                                         "date", "aroma", "flavor", "aftertaste", "acidity", "sweetness",
-                                                        "mouthfeel", "balance", "clean_cup", "uniformity")
+                                                        "mouthfeel", "balance", "clean_cup", "uniformity"),
                         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)`;
 
     console.log(req.body.coffee_shop_id);
