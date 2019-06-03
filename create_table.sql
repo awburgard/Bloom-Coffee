@@ -9,7 +9,7 @@ CREATE TABLE "users" (
 CREATE TABLE "cities" (
 	"city_id" SERIAL PRIMARY KEY,
     "city_name" VARCHAR (120) NOT NULL,
-    "zipcode" VARCHAR (120) [] UNIQUE NOT NULL,
+    "zipcode" TEXT [] UNIQUE NOT NULL,
     "picture_path" VARCHAR (120) NOT NULL
 );
 
@@ -27,7 +27,7 @@ CREATE TABLE "tasting_journal" (
     "coffee_shop_name" INT REFERENCES "coffee_shop",
     "date" DATE,
     "user_id" INT REFERENCES "users",
-    "description" VARCHAR (512) NOT NULL,
+    "description" TEXT NOT NULL,
     "overall" INTEGER,
     "aroma" INTEGER,
     "flavor" INTEGER,
