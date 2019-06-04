@@ -53,25 +53,25 @@ router.put('/', (req, res) => {
     "mouthfeel" = $10,
     "balance" = $11,
     "clean_cup" = $12,
-    "uniformity" = $13,
-    WHERE id= $14;`;
+    "uniformity" = $13
+    WHERE tasting_journal_id = $14;`;
 
-    const queryValues = {
-        coffee_name: updatedInfo.coffee_name,
-        coffee_shop_id: updatedInfo.coffee_shop_id,
-        description: updatedInfo.description,
-        overall: updatedInfo.overall,
-        aroma: updatedInfo.aroma,
-        flavor: updatedInfo.flavor,
-        aftertaste: updatedInfo.aftertaste,
-        acidity: updatedInfo.acidity,
-        sweetness: updatedInfo.sweetness,
-        mouthfeel: updatedInfo.mouthfeel,
-        balance: updatedInfo.balance,
-        clean_cup: updatedInfo.clean_cup,
-        uniformity: updatedInfo.uniformity,
-        id: updatedInfo.id,
-    }
+    const queryValues = [
+        updatedInfo.coffee_name,
+        updatedInfo.coffee_shop_id,
+        updatedInfo.description,
+        updatedInfo.overall,
+        updatedInfo.aroma,
+        updatedInfo.flavor,
+        updatedInfo.aftertaste,
+        updatedInfo.acidity,
+        updatedInfo.sweetness,
+        updatedInfo.mouthfeel,
+        updatedInfo.balance,
+        updatedInfo.clean_cup,
+        updatedInfo.uniformity,
+        updatedInfo.tasting_journal_id,
+    ];
 
     pool.query(queryText, queryValues)
     .then((response) => {
