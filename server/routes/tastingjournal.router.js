@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
             res.sendStatus(201);
         })
         .catch((err) => {
-            console.log(`Error posting tags to users table: ${err}`);
+            console.log(`Error posting to tasting journal: ${err}`);
             res.sendStatus(500);
         });
 });
@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
 router.put('/', (req, res) => {
     const updatedInfo = req.body;
 
-    const queryText = `UPDATE "tasting_journal"
+    const queryString = `UPDATE "tasting_journal"
     SET "coffee_name" = $1,
     "coffee_shop_id" = $2,
     "description" = $3,
@@ -73,7 +73,7 @@ router.put('/', (req, res) => {
         updatedInfo.tasting_journal_id,
     ];
 
-    pool.query(queryText, queryValues)
+    pool.query(queryString, queryValues)
     .then((response) => {
         res.sendStatus(201);
     })
@@ -82,5 +82,17 @@ router.put('/', (req, res) => {
         res.sendStatus(500);
     });
 });
+
+router.delete('/', (req, res) => {
+    const queryString = `DELETE FROM "tasting_journal" WHERE "tasting_journal_id"=$1`;
+    pool.query(queryString, [req.params.tasting_journal_id])
+    .then((response) => {
+        res.sendStatus(200);
+    })
+    .catch((err) => {
+        console.log(`Error deleting entry from tasting journal: ${err}`);
+        res.sendStatus(500);
+    });
+  });
 
 module.exports = router;
