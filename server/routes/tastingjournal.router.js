@@ -83,9 +83,9 @@ router.put('/', (req, res) => {
     });
 });
 
-router.delete('/', (req, res) => {
+router.delete('/:id', (req, res) => {
     const queryString = `DELETE FROM "tasting_journal" WHERE "tasting_journal_id"=$1`;
-    pool.query(queryString, [req.params.tasting_journal_id])
+    pool.query(queryString, [req.params.id])
     .then((response) => {
         res.sendStatus(200);
     })

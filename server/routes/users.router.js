@@ -27,5 +27,7 @@ router.post('/', (req,res) => {
             console.log(`Error posting tags to users table: ${err}`);
             res.sendStatus(500);
         });
-})
+});
+
+
 module.exports = router;
