@@ -15,4 +15,17 @@ router.get('/', (req, res) => {
         });
 });
 
+router.get('/zip/', (req, res) => {
+    const queryString = `SELECT "zipcode" FROM "cities";`;
+
+    pool.query(queryString)
+        .then((response) => {
+            res.send(response.rows);
+        })
+        .catch((err) => {
+            console.log(`Err: ${err}`);
+            res.sendStatus(500);
+        });
+});
+
 module.exports = router;
