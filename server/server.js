@@ -8,10 +8,11 @@ const passport = require('./strategies/user.strategy');
 const port = process.env.PORT || 5000;
 
 /** ---------- ROUTERS ---------- **/
-const users = require('./routes/users.router');
+const user = require('./routes/user.router');
 const tastingJournal = require('./routes/tastingjournal.router');
 const cities = require('./routes/cities.router');
-const coffeeShop = require('./routes/coffeeshop.router')
+const coffeeShop = require('./routes/coffeeshop.router');
+const allUsers = require ('./routes/allusers.router')
 
 /** ---------- MIDDLEWARE ---------- **/
 // Body parser middleware
@@ -29,10 +30,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /** ---------- ROUTES ---------- **/
-app.use('/api/users', users);
+app.use('/api/user', user);
 app.use('/api/tasting_journal', tastingJournal);
 app.use('/api/cities', cities);
 app.use('/api/coffee_shop', coffeeShop);
+app.use('/allusers', allUsers)
 
 
 /** ---------- START SERVER ---------- **/
