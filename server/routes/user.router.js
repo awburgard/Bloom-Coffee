@@ -15,13 +15,19 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 router.post('/register', (req, res, next) => {
     const username = req.body.username;
     const password = encryptLib.encryptPassword(req.body.password);
-    const firstName = req.body.first_name;
-    const lastName = req.body.last_name;
+    const first_name = req.body.first_name;
+    const last_name = req.body.last_name;
 
-    const queryText = `INSERT INTO "users" (username, password) VALUES ($1, $2) RETURNING id;`;
-    pool.query(queryText, [username, password, firstName, lastName])
-        .then(() => res.sendStatus(201))
-        .catch(() => res.sendStatus(500));
+    const queryString = `INSERT INTO "users" ("username", "password", "first_name", "last_name")
+                        VALUES ($1, $2, $3, $4) RETURNING "user_id";`;
+    pool.query(queryString, [username, password, first_name, last_name])
+    .then((response) => {
+        res.sendStatus(200);
+    })
+    .catch((err) => {
+        console.log(`Error creating user: ${err}`);
+        res.sendStatus(500);
+    });
 });
 
 // Handles login form authenticate/login POST
