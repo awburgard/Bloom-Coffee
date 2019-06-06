@@ -3,7 +3,7 @@ import loginSaga from './loginSaga';
 import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
 import tastingJournalSaga from './tastingJournalSaga'
-import getShops from '../reducers/getCoffeeShopsReducer';
+import getShops from './getCoffeeShopsSaga';
 import getKansasCityCoffeeShops from './getKansasCitySaga';
 
 

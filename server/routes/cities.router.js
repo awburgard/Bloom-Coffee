@@ -4,7 +4,7 @@ const pool = require('../modules/pool');
 
 router.get('/kansas_city', (req, res) => {
     const queryString = `SELECT * FROM "cities"
-                        WHERE "city_name" = "Kansas City;`;
+                        WHERE "city_name" = 'Kansas City';`;
 
     pool.query(queryString)
         .then((response) => {

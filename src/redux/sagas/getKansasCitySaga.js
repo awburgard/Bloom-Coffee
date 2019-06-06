@@ -3,8 +3,8 @@ import axios from 'axios';
 
 function* getKansasCity() {
     try {
-        yield axios.get(`/api/cities/kansas_city`)
-        yield put({ type: 'SET_KC'})
+       const response =  yield axios.get(`/api/cities/kansas_city`)
+        yield put({ type: 'SET_KC', payload: response.data})
     } catch (error) {
         console.log('Error with getting shops:', error);
     }
