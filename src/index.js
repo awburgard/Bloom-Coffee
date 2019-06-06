@@ -16,7 +16,7 @@ const sagaMiddleware = createSagaMiddleware();
 // we don't want a whole ton of console logs in our production code
 // logger will only be added to your project if your in development mode
 const middlewareList = process.env.NODE_ENV === 'development' ?
-  [sagaMiddleware, logger] :
+  [sagaMiddleware] :
   [sagaMiddleware];
 
 const store = createStore(
@@ -24,7 +24,7 @@ const store = createStore(
   // rootSaga contains all of our other reducers
   rootReducer,
   // adds all middleware to our project including saga and logger
-  applyMiddleware(...middlewareList),
+  applyMiddleware(...middlewareList, logger),
 );
 
 // tells the saga middleware to use the rootSaga
