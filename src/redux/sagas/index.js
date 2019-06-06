@@ -2,7 +2,10 @@ import { all } from 'redux-saga/effects';
 import loginSaga from './loginSaga';
 import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
-import TastingJournal from './tastingJournalSaga'
+import tastingJournalSaga from './tastingJournalSaga'
+import getCoffeeShops from '../reducers/getCoffeeShopsReducer';
+import getKansasCityCoffeeShops from './getKansasCitySaga';
+
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -13,6 +16,8 @@ export default function* rootSaga() {
     loginSaga(),
     registrationSaga(),
     userSaga(),
-    TastingJournal(),
+    tastingJournalSaga(),
+    getKansasCityCoffeeShops(),
+    getCoffeeShops(),
     ]);
 }

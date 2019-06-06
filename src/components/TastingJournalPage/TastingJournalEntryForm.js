@@ -18,6 +18,11 @@ class TastingJournalEntryForm extends Component {
         clean_cup: '',
         uniformity: ''
     }
+    componentDidMount(){
+        this.props.dispatch({
+            type: 'GET_SHOPS'
+        })
+    }
 
     handleInputChangeFor = propertyName => (event) => {
         this.setState({

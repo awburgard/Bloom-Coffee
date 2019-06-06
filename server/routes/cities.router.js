@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-router.get('/', (req, res) => {
-    const queryString = `SELECT * FROM "cities"`;
+router.get('/kansas_city', (req, res) => {
+    const queryString = `SELECT * FROM "cities"
+                        WHERE "city_name" = "Kansas City;`;
 
     pool.query(queryString)
         .then((response) => {
