@@ -10,7 +10,7 @@ function* getCoffeeShops(action) {
     }
 }
 
-function* getCoffeeShops() {
+function* getShops() {
     yield takeLatest('GET_SHOPS', getCoffeeShops);
 };
 
