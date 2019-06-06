@@ -39,13 +39,11 @@ passport.use('local', new LocalStrategy((username, password, done) => {
         if (user && encryptLib.comparePassword(password, user.password)) {
           // All good! Passwords match!
           // done takes an error (null in this case) and a user
-          console.log('** PASSWORD MATCHED! ** ');
           done(null, user);
         } else {
           // Not good! Username and password do not match.
           // done takes an error (null in this case) and a user (also null in this case)
           // this will result in the server returning a 401 status code
-          console.log('** PASSWORD FAILED!" ** ');
           done(null, null);
         }
       }).catch((error) => {

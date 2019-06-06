@@ -9,10 +9,8 @@ function* registerUser(action) {
 
     // passes the username and password from the payload to the server
     yield axios.post('/api/user/register', action.payload);
-    console.log('POST REGISTER, PRE LOGIN');
     // automatically log a user in after registration
     yield put({ type: 'LOGIN', payload: action.payload });
-    console.log('POST LOGIN');
     // set to 'login' mode so they see the login screen
     // after registration or after they log out
     yield put({type: 'SET_TO_LOGIN_MODE'});

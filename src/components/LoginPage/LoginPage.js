@@ -10,8 +10,6 @@ class LoginPage extends Component {
   login = (event) => {
     event.preventDefault();
 
-    console.log('YERP');
-
     if (this.state.username && this.state.password) {
       this.props.dispatch({
         type: 'LOGIN',
