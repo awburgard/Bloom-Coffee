@@ -19,6 +19,13 @@ class TastingJournalEntryForm extends Component {
         uniformity: ''
     }
 
+    componentDidMount(){
+        this.props.dispatch({
+            type: 'GET_SHOPS',
+            payload: this.props.reduxState.getKansasCity
+        })
+    }
+
     handleInputChangeFor = propertyName => (event) => {
         this.setState({
           [propertyName]: event.target.value,
@@ -48,12 +55,19 @@ class TastingJournalEntryForm extends Component {
       }
 
     render() {
+        const shopOptions = this.props.reduxState.getCoffeeShops.map((shop, index)=>{
+            return (
+                <option value={shop.coffee_shop_id} key={index}>{shop.shop_name}</option>
+            )
+        })
         return (
             <div>
                 <textarea name="message" rows="10" cols="30" value={this.state.description} onChange={this.handleInputChangeFor('description')}>
                     Your Description Here
                 </textarea>
-                <input type="text" placeholder="coffee shop name" value={this.state.coffee_shop_name} onChange={this.handleInputChangeFor('coffee_shop_name')}/>
+                <select type="text" placeholder="coffee shop name" value={this.state.coffee_shop_name} onChange={this.handleInputChangeFor('coffee_shop_name')}>
+                    {shopOptions}
+                </select>
                 <input type="text" placeholder="coffee name"value={this.state.coffee_name} onChange={this.handleInputChangeFor('coffee_name')}/>
                 <input type="number" placeholder="overall"value={this.state.overall} onChange={this.handleInputChangeFor('overall')}/>
                 <input type="number" placeholder="aroma"value={this.state.aroma} onChange={this.handleInputChangeFor('aroma')}/>

@@ -1,7 +1,7 @@
 const getKansasCity = (state = [], action) => {
     switch (action.type) {
       case 'SET_KC':
-        return action.payload;
+        return action.payload[0];
       default:
         return state;
     }
