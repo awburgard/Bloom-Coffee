@@ -54,7 +54,7 @@ class TastingJournalEntryForm extends Component {
                 user_id: this.props.reduxState.user.user_id,
               }
           })
-      }
+      };
 
     render() {
         const shopOptions = this.props.reduxState.getCoffeeShops.map((shop, index)=>{
@@ -82,6 +82,7 @@ class TastingJournalEntryForm extends Component {
                 <input type="number" placeholder="clean cup" value={this.state.clean_cup} onChange={this.handleInputChangeFor('clean_cup')}/>
                 <input type="number" placeholder="uniformity" value={this.state.uniformity} onChange={this.handleInputChangeFor('uniformity')}/>
                 <button onClick={this.addEntry}>Add Entry</button>
+                <button onClick={this.editEntry}>Edit Entry</button>
             </div>
         )
     }

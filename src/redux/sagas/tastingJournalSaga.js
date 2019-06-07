@@ -4,12 +4,12 @@ import axios from 'axios';
 function* addEntry(action) {
     console.log(action.payload)
     try {
-        yield axios.post('/api/tasting_journal', action.payload)
+        yield axios.post(`/api/tasting_journal`, action.payload)
         yield put({ type: 'GET_ENTRIES', payload: {user_id: action.payload.user_id}})
     } catch (error) {
         console.log('Error with adding entry:', error);
     }
-}
+};
 
 function* getEntries(action) {
     try {
@@ -18,11 +18,21 @@ function* getEntries(action) {
     } catch (error) {
         console.log('Error with getting entries:', error);
     }
-}
+};
+
+function* updateEntry (action){
+    try{
+        yield axios.put(`/api/tasting_journal`, action.payload)
+        yield put({ type: 'GET_ENTRIES', payload: {user_id: action.payload.user_id}})
+    } catch (error) {
+        console.log('Error with updating entry:', error);
+    }
+};
 
 function* TastingJournal() {
     yield takeLatest('ADD_ENTRY', addEntry);
     yield takeLatest('GET_ENTRIES', getEntries);
+    yield takeLatest ('UPDATE_ENTRY', updateEntry);
 };
 
 export default TastingJournal;

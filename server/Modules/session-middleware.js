@@ -1,5 +1,3 @@
-// No changes should be required in this file
-
 const cookieSession = require('cookie-session');
 const warnings = require('../constants/warnings');
 
