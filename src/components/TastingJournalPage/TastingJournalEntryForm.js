@@ -6,7 +6,7 @@ class TastingJournalEntryForm extends Component {
     state = {
         description: '',
         coffee_name: '',
-        coffee_shop_name: '',
+        coffee_shop_id: '',
         overall: '',
         aroma: '',
         flavor: '',
@@ -27,6 +27,8 @@ class TastingJournalEntryForm extends Component {
     }
 
     handleInputChangeFor = propertyName => (event) => {
+        console.log(event.target.value)
+        console.log(propertyName)
         this.setState({
           [propertyName]: event.target.value,
         });
@@ -38,7 +40,7 @@ class TastingJournalEntryForm extends Component {
               payload: {
                 description: this.state.description,
                 coffee_name: this.state.coffee_name,
-                coffee_shop_name: this.state.coffee_shop_name,
+                coffee_shop_id: this.state.coffee_shop_id,
                 overall: this.state.overall,
                 aroma: this.state.aroma,
                 flavor: this.state.flavor,
@@ -65,7 +67,7 @@ class TastingJournalEntryForm extends Component {
                 <textarea name="message" rows="10" cols="30" value={this.state.description} onChange={this.handleInputChangeFor('description')}>
                     Your Description Here
                 </textarea>
-                <select type="text" placeholder="coffee shop name" value={this.state.coffee_shop_name} onChange={this.handleInputChangeFor('coffee_shop_name')}>
+                <select type="text" placeholder="coffee shop name" onChange={this.handleInputChangeFor('coffee_shop_id')}>
                     {shopOptions}
                 </select>
                 <input type="text" placeholder="coffee name"value={this.state.coffee_name} onChange={this.handleInputChangeFor('coffee_name')}/>
