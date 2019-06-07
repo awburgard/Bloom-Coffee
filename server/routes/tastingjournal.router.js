@@ -2,13 +2,12 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-router.get('/:user_id', (req, res) => {
+router.get('/', (req, res) => {
     const queryString = `SELECT * FROM "tasting_journal"
-                        JOIN "users" ON "tasting_journal"."user_id" = "users"."user_id"
                         JOIN "coffee_shop" ON "tasting_journal"."coffee_shop_id" = "coffee_shop"."coffee_shop_id"
-                        WHERE "users"."user_id" = $1;`;
+                        WHERE "tasting_journal"."user_id" = $1;`;
 
-    pool.query(queryString, [req.params.user_id])
+    pool.query(queryString, [req.user.user_id])
         .then((response) => {
             res.send(response.rows);
         })

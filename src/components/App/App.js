@@ -16,13 +16,14 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import TastingJournal from '../TastingJournalPage/TastingJournalEntryForm';
-import KansasCity from '../CityPage/KansasCityPage'
+import LoginPage from '../LoginPage/LoginPage';
 
 import './App.css';
 
 class App extends Component {
   componentDidMount () {
-    this.props.dispatch({type: 'FETCH_USER'})
+    this.props.dispatch({type: 'FETCH_USER'});
+    this.props.dispatch({type: 'GET_KC'});
   }
 
   render() {
@@ -32,12 +33,12 @@ class App extends Component {
           <Nav />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-            <Redirect exact from="/" to="/kansas-city" />
+            <Redirect exact from="/" to="/home" />
 
             <Route
               exact
-              path="/kansas-city"
-              component={KansasCity}
+              path="/login"
+              component={LoginPage}
             />
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
