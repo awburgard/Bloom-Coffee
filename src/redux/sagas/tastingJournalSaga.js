@@ -13,7 +13,6 @@ function* addEntry(action) {
 function* getEntries(action) {
     try {
         const response = yield axios.get(`/api/tasting_journal/`)
-        console.log('GET_ENTRIES - response: ', response);
         yield put({ type: 'SET_ENTRIES', payload: response.data })
     } catch (error) {
         console.log('Error with getting entries:', error);

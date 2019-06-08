@@ -63,11 +63,21 @@ class TastingJournalEntryForm extends Component {
                 <option value={shop.coffee_shop_id} key={index}>{shop.shop_name}</option>
             )
         })
-        console.log(this.props.reduxState.tastingJournalEntries)
         const journalEntries = this.props.reduxState.tastingJournalEntries.map((entry, index)=>{
             return (
                 <div key={index}>
+                    <p>{entry.coffee_shop_id}</p>
                     <p>{entry.description}</p>
+                    <p>{entry.coffee_name}</p>
+                    <p>{entry.overall}</p>
+                    <p>{entry.aroma}</p>
+                    <p>{entry.aftertaste}</p>
+                    <p>{entry.acidity}</p>
+                    <p>{entry.sweetness}</p>
+                    <p>{entry.mouthfeel}</p>
+                    <p>{entry.balance}</p>
+                    <p>{entry.clean_cup}</p>
+                    <p>{entry.uniformity}</p>
                 </div>
             )
         })

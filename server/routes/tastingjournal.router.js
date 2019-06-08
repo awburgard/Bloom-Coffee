@@ -17,6 +17,7 @@ router.get('/', (req, res) => {
         });
 });
 
+
 router.post('/', (req, res) => {
     const queryString = `INSERT INTO "tasting_journal" ("coffee_name", "coffee_shop_id", "user_id", "description", "overall",
                                                         "date", "aroma", "flavor", "aftertaste", "acidity", "sweetness",
