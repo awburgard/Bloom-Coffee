@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
+import { TextField } from '@material-ui/core';
+import Input from '@material-ui/core/Input';
+import Button from '@material-ui/core/Button'
+import AddIcon from '@material-ui/icons/Add';
 
 class TastingJournalEntryForm extends Component {
     state = {
@@ -63,7 +67,7 @@ class TastingJournalEntryForm extends Component {
                 <option value={shop.coffee_shop_id} key={index}>{shop.shop_name}</option>
             )
         })
-        const journalEntries = this.props.reduxState.tastingJournalEntries.map((entry, index)=>{
+        const journalEntries = this.props.reduxState.tastingJournalEntries.map((entry, index) => {
             return (
                 <div key={index}>
                     <p>{entry.coffee_shop_id}</p>
@@ -84,24 +88,24 @@ class TastingJournalEntryForm extends Component {
 
         return (
             <div>
-                <textarea name="message" rows="10" cols="30" value={this.state.description} onChange={this.handleInputChangeFor('description')}>
+                <TextField id="standard-name" name="message" rows="10" cols="30" value={this.state.description} onChange={this.handleInputChangeFor('description')}>
                     Your Description Here
-                </textarea>
+                </TextField>
                 <select type="text" placeholder="coffee shop name" onChange={this.handleInputChangeFor('coffee_shop_id')}>
                     {shopOptions}
                 </select>
-                <input type="text" placeholder="coffee name" value={this.state.coffee_name} onChange={this.handleInputChangeFor('coffee_name')} />
-                <input type="number" placeholder="overall" value={this.state.overall} onChange={this.handleInputChangeFor('overall')} />
-                <input type="number" placeholder="aroma" value={this.state.aroma} onChange={this.handleInputChangeFor('aroma')} />
-                <input type="number" placeholder="flavor" value={this.state.flavor} onChange={this.handleInputChangeFor('flavor')} />
-                <input type="number" placeholder="aftertaste" value={this.state.aftertaste} onChange={this.handleInputChangeFor('aftertaste')} />
-                <input type="number" placeholder="acidity" value={this.state.acidity} onChange={this.handleInputChangeFor('acidity')} />
-                <input type="number" placeholder="sweetness" value={this.state.sweetness} onChange={this.handleInputChangeFor('sweetness')} />
-                <input type="number" placeholder="mouthfeel" value={this.state.mouthfeel} onChange={this.handleInputChangeFor('mouthfeel')} />
-                <input type="number" placeholder="balance" value={this.state.balance} onChange={this.handleInputChangeFor('balance')} />
-                <input type="number" placeholder="clean cup" value={this.state.clean_cup} onChange={this.handleInputChangeFor('clean_cup')} />
-                <input type="number" placeholder="uniformity" value={this.state.uniformity} onChange={this.handleInputChangeFor('uniformity')} />
-                <button onClick={this.addEntry}>Add Entry</button>
+                <Input type="text" placeholder="coffee name" value={this.state.coffee_name} onChange={this.handleInputChangeFor('coffee_name')} />
+                <Input type="number" placeholder="overall" value={this.state.overall} onChange={this.handleInputChangeFor('overall')} />
+                <Input type="number" placeholder="aroma" value={this.state.aroma} onChange={this.handleInputChangeFor('aroma')} />
+                <Input type="number" placeholder="flavor" value={this.state.flavor} onChange={this.handleInputChangeFor('flavor')} />
+                <Input type="number" placeholder="aftertaste" value={this.state.aftertaste} onChange={this.handleInputChangeFor('aftertaste')} />
+                <Input type="number" placeholder="acidity" value={this.state.acidity} onChange={this.handleInputChangeFor('acidity')} />
+                <Input type="number" placeholder="sweetness" value={this.state.sweetness} onChange={this.handleInputChangeFor('sweetness')} />
+                <Input type="number" placeholder="mouthfeel" value={this.state.mouthfeel} onChange={this.handleInputChangeFor('mouthfeel')} />
+                <Input type="number" placeholder="balance" value={this.state.balance} onChange={this.handleInputChangeFor('balance')} />
+                <Input type="number" placeholder="clean cup" value={this.state.clean_cup} onChange={this.handleInputChangeFor('clean_cup')} />
+                <Input type="number" placeholder="uniformity" value={this.state.uniformity} onChange={this.handleInputChangeFor('uniformity')} />
+                <Button onClick={this.addEntry}>Add Entry</Button>
                 {journalEntries}
             </div>
         )

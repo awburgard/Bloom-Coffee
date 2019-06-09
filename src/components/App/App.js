@@ -18,6 +18,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import TastingJournal from '../TastingJournalPage/TastingJournalEntryForm';
 import LoginPage from '../LoginPage/LoginPage';
+import ElevateAppBar from '../AppBar/AppBar';
 
 import './App.css';
 
@@ -30,6 +31,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
+        <ElevateAppBar />
         <CssBaseline />
         <Router>
           <div>
