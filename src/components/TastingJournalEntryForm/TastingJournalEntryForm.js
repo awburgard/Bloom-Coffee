@@ -5,8 +5,6 @@ import { TextField, Select, MenuItem, FormControl, InputLabel } from '@material-
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 
-
-
 class TastingJournalEntryForm extends Component {
     state = {
         description: '',
@@ -110,7 +108,7 @@ class TastingJournalEntryForm extends Component {
                     <InputLabel>Coffee Shop Name</InputLabel>
                     <Select
                         type="text"
-                        value={"coffee shop name"}
+                        value={this.state.coffee_shop_id}
                         placeholder="coffee shop name"
                         onChange={this.handleInputChangeFor('coffee_shop_id')}>
                         {shopOptions}

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
 import JournalList from '../JournalList/JournalList';
 
+
 class TastingJournalMain extends Component {
     componentDidMount() {
         this.props.dispatch({
