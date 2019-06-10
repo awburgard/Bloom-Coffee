@@ -26,13 +26,23 @@ function* deleteEntry(action) {
     } catch (error) {
         console.log('Error deleting from database:', error);
     }
-}
+};
+
+function* editEntry(action){
+    try {
+        yield axios.put(`/api/tasting_journal`)
+        yield put({type: 'GET_ENTRIES'})
+    } catch (error) {
+        console.log('Error deleting from database:', error);
+    }
+};
 
 
 function* TastingJournal() {
     yield takeLatest('ADD_ENTRY', addEntry);
     yield takeLatest('GET_ENTRIES', getEntries);
-    yield takeLatest('DELETE_ENTRY', deleteEntry)
+    yield takeLatest('DELETE_ENTRY', deleteEntry);
+    yield takeLatest('EDIT_ENTRY', editEntry);
 };
 
 export default TastingJournal;

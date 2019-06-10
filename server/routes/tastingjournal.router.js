@@ -19,9 +19,10 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
-    const queryString = `INSERT INTO "tasting_journal" ("coffee_name", "coffee_shop_id", "user_id", "description", "overall",
-                                                        "date", "aroma", "flavor", "aftertaste", "acidity", "sweetness",
-                                                        "mouthfeel", "balance", "clean_cup", "uniformity")
+    const queryString = `INSERT INTO "tasting_journal"
+                        ("coffee_name", "coffee_shop_id", "user_id", "description", "overall",
+                        "date", "aroma", "flavor", "aftertaste", "acidity", "sweetness",
+                        "mouthfeel", "balance", "clean_cup", "uniformity")
                         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15);`;
 
     pool.query(queryString, [req.body.coffee_name, req.body.coffee_shop_id, req.user.user_id, req.body.description,

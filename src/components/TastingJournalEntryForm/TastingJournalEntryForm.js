@@ -6,6 +6,7 @@ import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 
 
+
 class TastingJournalEntryForm extends Component {
     state = {
         description: '',
@@ -20,16 +21,13 @@ class TastingJournalEntryForm extends Component {
         mouthfeel: '',
         balance: '',
         clean_cup: '',
-        uniformity: ''
+        uniformity: '',
     }
 
     componentDidMount() {
         this.props.dispatch({
             type: 'GET_SHOPS',
             payload: { city_id: this.props.reduxState.user.home_city }
-        })
-        this.props.dispatch({
-            type: 'GET_ENTRIES'
         })
     }
 
@@ -65,50 +63,56 @@ class TastingJournalEntryForm extends Component {
         })
     };
 
-    deleteEntry = (jounralId) => ((event) => {
-        this.props.dispatch({
-            type:'DELETE_ENTRY',
-            payload: jounralId
-        })
-    })
+
+    editEntry = (event) => {
+        let selectedShop = this.state.coffee_shop_id
+        if (selectedShop === '') {
+            selectedShop = this.props.reduxState.getCoffeeShops[0].coffee_shop_id;
+        }
+        this.clickEdit(event)
+
+        if (this.state.editing === false) {
+            this.props.dispatch({
+                type: 'EDIT_ENTRY',
+                payload: {
+                    description: this.state.description,
+                    coffee_name: this.state.coffee_name,
+                    coffee_shop_id: selectedShop,
+                    overall: this.state.overall,
+                    aroma: this.state.aroma,
+                    flavor: this.state.flavor,
+                    aftertaste: this.state.aftertaste,
+                    acidity: this.state.acidity,
+                    sweetness: this.state.acidity,
+                    mouthfeel: this.state.mouthfeel,
+                    balance: this.state.balance,
+                    clean_cup: this.state.clean_cup,
+                    uniformity: this.state.uniformity,
+                }
+            })
+        }
+    }
 
     render() {
+
         const shopOptions = this.props.reduxState.getCoffeeShops.map((shop, index) => {
             return (
                 <MenuItem value={shop.coffee_shop_id} key={index}>{shop.shop_name}</MenuItem>
             )
         })
-        const journalEntries = this.props.reduxState.tastingJournalEntries.map((entry, index) => {
-            let coffeeShopName = this.props.reduxState.getCoffeeShops.filter((shop, index) => {
-                return shop.coffee_shop_id === entry.coffee_shop_id
-            })
-            coffeeShopName = coffeeShopName[0].shop_name
-            return (
-                <div key={index}>
-                    <p>{coffeeShopName}</p>
-                    <p>{entry.description}</p>
-                    <p>{entry.coffee_name}</p>
-                    <p>{entry.overall}</p>
-                    <p>{entry.aroma}</p>
-                    <p>{entry.aftertaste}</p>
-                    <p>{entry.acidity}</p>
-                    <p>{entry.sweetness}</p>
-                    <p>{entry.mouthfeel}</p>
-                    <p>{entry.balance}</p>
-                    <p>{entry.clean_cup}</p>
-                    <p>{entry.uniformity}</p>
-                    <Button onClick={this.deleteEntry(entry.tasting_journal_id)}>Delete</Button>
-                </div>
-            )
-        })
 
         return (
-            <div>
+            <FormControl>
                 <TextField id="standard-name" name="message" rows="10" cols="30" value={this.state.description} onChange={this.handleInputChangeFor('description')}>
                     Your Description Here
                 </TextField>
                 <FormControl>
-                    <Select type="text" placeholder="coffee shop name" onChange={this.handleInputChangeFor('coffee_shop_id')}>
+                    <InputLabel>Coffee Shop Name</InputLabel>
+                    <Select
+                        type="text"
+                        value={"coffee shop name"}
+                        placeholder="coffee shop name"
+                        onChange={this.handleInputChangeFor('coffee_shop_id')}>
                         {shopOptions}
                     </Select>
                 </FormControl>
@@ -124,8 +128,7 @@ class TastingJournalEntryForm extends Component {
                 <Input type="number" placeholder="clean cup" value={this.state.clean_cup} onChange={this.handleInputChangeFor('clean_cup')} />
                 <Input type="number" placeholder="uniformity" value={this.state.uniformity} onChange={this.handleInputChangeFor('uniformity')} />
                 <Button onClick={this.addEntry}>Add Entry</Button>
-                {journalEntries}
-            </div>
+            </FormControl>
         )
     }
 }
