@@ -7,9 +7,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
 
 function ElevationScroll(props) {
   const { children, window } = props;

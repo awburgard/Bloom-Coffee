@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
-import { TextField } from '@material-ui/core';
+import { TextField, Select, MenuItem, FormControl, InputLabel } from '@material-ui/core';
 import Input from '@material-ui/core/Input';
-import Button from '@material-ui/core/Button'
-import AddIcon from '@material-ui/icons/Add';
+import Button from '@material-ui/core/Button';
+
 
 class TastingJournalEntryForm extends Component {
     state = {
@@ -40,12 +40,17 @@ class TastingJournalEntryForm extends Component {
     };
 
     addEntry = (event) => {
+        let selectedShop = this.state.coffee_shop_id
+        if (selectedShop === '') {
+            selectedShop = this.props.reduxState.getCoffeeShops[0].coffee_shop_id;
+        }
+
         this.props.dispatch({
             type: 'ADD_ENTRY',
             payload: {
                 description: this.state.description,
                 coffee_name: this.state.coffee_name,
-                coffee_shop_id: this.state.coffee_shop_id,
+                coffee_shop_id: selectedShop,
                 overall: this.state.overall,
                 aroma: this.state.aroma,
                 flavor: this.state.flavor,
@@ -56,21 +61,31 @@ class TastingJournalEntryForm extends Component {
                 balance: this.state.balance,
                 clean_cup: this.state.clean_cup,
                 uniformity: this.state.uniformity,
-                user_id: this.props.reduxState.user.user_id,
             }
         })
     };
 
+    deleteEntry = (jounralId) => ((event) => {
+        this.props.dispatch({
+            type:'DELETE_ENTRY',
+            payload: jounralId
+        })
+    })
+
     render() {
         const shopOptions = this.props.reduxState.getCoffeeShops.map((shop, index) => {
             return (
-                <option value={shop.coffee_shop_id} key={index}>{shop.shop_name}</option>
+                <MenuItem value={shop.coffee_shop_id} key={index}>{shop.shop_name}</MenuItem>
             )
         })
         const journalEntries = this.props.reduxState.tastingJournalEntries.map((entry, index) => {
+            let coffeeShopName = this.props.reduxState.getCoffeeShops.filter((shop, index) => {
+                return shop.coffee_shop_id === entry.coffee_shop_id
+            })
+            coffeeShopName = coffeeShopName[0].shop_name
             return (
                 <div key={index}>
-                    <p>{entry.coffee_shop_id}</p>
+                    <p>{coffeeShopName}</p>
                     <p>{entry.description}</p>
                     <p>{entry.coffee_name}</p>
                     <p>{entry.overall}</p>
@@ -82,6 +97,7 @@ class TastingJournalEntryForm extends Component {
                     <p>{entry.balance}</p>
                     <p>{entry.clean_cup}</p>
                     <p>{entry.uniformity}</p>
+                    <Button onClick={this.deleteEntry(entry.tasting_journal_id)}>Delete</Button>
                 </div>
             )
         })
@@ -91,9 +107,11 @@ class TastingJournalEntryForm extends Component {
                 <TextField id="standard-name" name="message" rows="10" cols="30" value={this.state.description} onChange={this.handleInputChangeFor('description')}>
                     Your Description Here
                 </TextField>
-                <select type="text" placeholder="coffee shop name" onChange={this.handleInputChangeFor('coffee_shop_id')}>
-                    {shopOptions}
-                </select>
+                <FormControl>
+                    <Select type="text" placeholder="coffee shop name" onChange={this.handleInputChangeFor('coffee_shop_id')}>
+                        {shopOptions}
+                    </Select>
+                </FormControl>
                 <Input type="text" placeholder="coffee name" value={this.state.coffee_name} onChange={this.handleInputChangeFor('coffee_name')} />
                 <Input type="number" placeholder="overall" value={this.state.overall} onChange={this.handleInputChangeFor('overall')} />
                 <Input type="number" placeholder="aroma" value={this.state.aroma} onChange={this.handleInputChangeFor('aroma')} />

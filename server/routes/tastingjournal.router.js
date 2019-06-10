@@ -24,11 +24,10 @@ router.post('/', (req, res) => {
                                                         "mouthfeel", "balance", "clean_cup", "uniformity")
                         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15);`;
 
-
-    pool.query(queryString, [req.body.coffee_name, req.body.coffee_shop_id, req.body.user_id, req.body.description,
-                            req.body.overall, req.body.date, req.body.aroma, req.body.flavor, req.body.aftertaste,
-                            req.body.acidity, req.body.sweetness, req.body.mouthfeel, req.body.balance,
-                            req.body.clean_cup, req.body.uniformity])
+    pool.query(queryString, [req.body.coffee_name, req.body.coffee_shop_id, req.user.user_id, req.body.description,
+    req.body.overall, req.body.date, req.body.aroma, req.body.flavor, req.body.aftertaste,
+    req.body.acidity, req.body.sweetness, req.body.mouthfeel, req.body.balance,
+    req.body.clean_cup, req.body.uniformity])
         .then((response) => {
             res.sendStatus(201);
         })
@@ -75,25 +74,25 @@ router.put('/', (req, res) => {
     ];
 
     pool.query(queryString, queryValues)
-    .then((response) => {
-        res.sendStatus(201);
-    })
-    .catch((err) => {
-        console.log(`Error updating info to tasting journal: ${err}`);
-        res.sendStatus(500);
-    });
+        .then((response) => {
+            res.sendStatus(201);
+        })
+        .catch((err) => {
+            console.log(`Error updating info to tasting journal: ${err}`);
+            res.sendStatus(500);
+        });
 });
 
 router.delete('/:id', (req, res) => {
-    const queryString = `DELETE FROM "tasting_journal" WHERE "tasting_journal_id"=$1`;
+    const queryString = `DELETE FROM "tasting_journal" WHERE "tasting_journal_id" = $1`;
     pool.query(queryString, [req.params.id])
-    .then((response) => {
-        res.sendStatus(200);
-    })
-    .catch((err) => {
-        console.log(`Error deleting entry from tasting journal: ${err}`);
-        res.sendStatus(500);
-    });
-  });
+        .then((response) => {
+            res.sendStatus(200);
+        })
+        .catch((err) => {
+            console.log(`Error deleting entry from tasting journal: ${err}`);
+            res.sendStatus(500);
+        });
+});
 
 module.exports = router;
