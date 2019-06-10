@@ -4,6 +4,8 @@ import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
 import { TextField, Select, MenuItem, FormControl, InputLabel } from '@material-ui/core';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
+import { withRouter } from 'react-router-dom';
+
 
 class TastingJournalEntryForm extends Component {
     state = {
@@ -59,6 +61,7 @@ class TastingJournalEntryForm extends Component {
                 uniformity: this.state.uniformity,
             }
         })
+        this.props.history.push('/tasting-journal-main')
     };
 
 
@@ -92,17 +95,20 @@ class TastingJournalEntryForm extends Component {
     }
 
     render() {
-
         const shopOptions = this.props.reduxState.getCoffeeShops.map((shop, index) => {
             return (
                 <MenuItem value={shop.coffee_shop_id} key={index}>{shop.shop_name}</MenuItem>
             )
         })
-
         return (
             <FormControl>
-                <TextField id="standard-name" name="message" rows="10" cols="30" value={this.state.description} onChange={this.handleInputChangeFor('description')}>
-                    Your Description Here
+                <TextField
+                    id="standard-name"
+                    name="message"
+                    rows="10"
+                    cols="30"
+                    value={this.state.description}
+                    onChange={this.handleInputChangeFor('description')}>
                 </TextField>
                 <FormControl>
                     <InputLabel>Coffee Shop Name</InputLabel>
@@ -131,4 +137,4 @@ class TastingJournalEntryForm extends Component {
     }
 }
 
-export default connect(mapReduxStateToProps)(TastingJournalEntryForm);
+export default connect(mapReduxStateToProps)(withRouter(TastingJournalEntryForm));

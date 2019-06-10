@@ -14,6 +14,7 @@ class TastingJournalMain extends Component {
             type: 'GET_ENTRIES'
         })
     }
+
     render() {
         return (
             <div>

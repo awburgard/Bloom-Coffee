@@ -5,6 +5,7 @@ import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 
+
 class JournalItem extends Component {
 
     editEntry = (event) => {
@@ -14,7 +15,7 @@ class JournalItem extends Component {
     deleteEntry = (event) => {
         this.props.dispatch({
             type: 'DELETE_ENTRY',
-            payload: this.props.tasting_journal_id
+            payload: this.props.entry.tasting_journal_id
         })
     }
     render() {
