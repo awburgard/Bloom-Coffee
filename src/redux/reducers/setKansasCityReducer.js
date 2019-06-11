@@ -1,4 +1,4 @@
-const getKansasCity = (state = [], action) => {
+const setKansasCity = (state = [], action) => {
     switch (action.type) {
       case 'SET_KC':
         return action.payload[0];
@@ -7,4 +7,4 @@ const getKansasCity = (state = [], action) => {
     }
   };
 
-  export default getKansasCity;
+  export default setKansasCity;

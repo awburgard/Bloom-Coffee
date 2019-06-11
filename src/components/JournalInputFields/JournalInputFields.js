@@ -26,7 +26,6 @@ class JournalInputFields extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.initialData)
         if (this.props.initialData) {
             this.setState({
                 description: this.props.initialData.description,
@@ -91,7 +90,7 @@ class JournalInputFields extends Component {
         this.props.dispatch({
             type: 'EDIT_ENTRY',
             payload: {
-                tasting_journal_id: this.props.reduxState.getTastingJournalEntry.tasting_journal_id,
+                tasting_journal_id: this.props.reduxState.setTastingJournalEntry.tasting_journal_id,
                 description: this.state.description,
                 coffee_name: this.state.coffee_name,
                 coffee_shop_id: selectedShop,

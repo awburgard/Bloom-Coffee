@@ -7,7 +7,6 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import { ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails } from '@material-ui/core';
 
 
-
 class JournalItem extends Component {
 
     editEntry = (event) => {

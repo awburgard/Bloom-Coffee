@@ -24,7 +24,7 @@ class EditEntryForm extends Component {
     render (){
         return (
             <div>
-                <JournalInputFields initialData={this.props.reduxState.getTastingJournalEntry}/>
+                <JournalInputFields initialData={this.props.reduxState.setTastingJournalEntry}/>
             </div>
         )
     }
