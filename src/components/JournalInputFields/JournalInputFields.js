@@ -5,10 +5,9 @@ import { TextField, Select, MenuItem, FormControl, InputLabel } from '@material-
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import { withRouter } from 'react-router-dom';
-import queryString from 'query-string';
 
 
-class TastingJournalEntryForm extends Component {
+class JournalInputFields extends Component {
     state = {
         description: '',
         coffee_name: '',
@@ -27,20 +26,27 @@ class TastingJournalEntryForm extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch({
-            type: 'GET_SHOPS',
-            payload: { city_id: this.props.reduxState.user.home_city }
-        })
-        if (this.props.location.search) {
+        console.log(this.props.initialData)
+        if (this.props.initialData) {
             this.setState({
+                description: this.props.initialData.description,
+                coffee_name: this.props.initialData.coffee_name,
+                coffee_shop_id: this.props.initialData.coffee_shop_id,
+                overall: this.props.initialData.overall,
+                aroma: this.props.initialData.aroma,
+                flavor: this.props.initialData.flavor,
+                aftertaste: this.props.initialData.aftertaste,
+                acidity: this.props.initialData.acidity,
+                sweetness: this.props.initialData.sweetness,
+                mouthfeel: this.props.initialData.mouthfeel,
+                balance: this.props.initialData.balance,
+                clean_cup: this.props.initialData.clean_cup,
+                uniformity: this.props.initialData.uniformity,
                 editing: true,
-            })
-            this.props.dispatch({
-                type: 'GET_ENTRY',
-                payload: queryString.parse(this.props.location.search).entry
             })
         }
     }
+
 
     handleInputChangeFor = propertyName => (event) => {
         this.setState({
@@ -81,10 +87,33 @@ class TastingJournalEntryForm extends Component {
         if (selectedShop === '') {
             selectedShop = this.props.reduxState.getCoffeeShops[0].coffee_shop_id;
         }
-
+        this.props.dispatch({
+            type: 'EDIT_ENTRY',
+            payload: {
+                description: this.state.description,
+                coffee_name: this.state.coffee_name,
+                coffee_shop_id: selectedShop,
+                overall: this.state.overall,
+                aroma: this.state.aroma,
+                flavor: this.state.flavor,
+                aftertaste: this.state.aftertaste,
+                acidity: this.state.acidity,
+                sweetness: this.state.acidity,
+                mouthfeel: this.state.mouthfeel,
+                balance: this.state.balance,
+                clean_cup: this.state.clean_cup,
+                uniformity: this.state.uniformity,
+            }
+        })
+        this.props.history.push('/tasting-journal-main')
     }
 
     render() {
+        let conditionalButton = <Button onClick={this.addEntry}>Add Entry</Button>
+        if (this.state.editing === true){
+            conditionalButton = <Button onClick={this.updateEntry}>Update Entry</Button>
+        }
+
         const shopOptions = this.props.reduxState.getCoffeeShops.map((shop, index) => {
             return (
                 <MenuItem value={shop.coffee_shop_id} key={index}>{shop.shop_name}</MenuItem>
@@ -165,10 +194,10 @@ class TastingJournalEntryForm extends Component {
                     placeholder="uniformity"
                     value={this.state.uniformity}
                     onChange={this.handleInputChangeFor('uniformity')} />
-                <Button onClick={this.addEntry}>Add Entry</Button>
+                {conditionalButton}
             </FormControl>
         )
     }
 }
 
-export default connect(mapReduxStateToProps)(withRouter(TastingJournalEntryForm));
+export default connect(mapReduxStateToProps)(withRouter(JournalInputFields));

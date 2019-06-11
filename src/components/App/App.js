@@ -17,7 +17,8 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import TastingJournalMain from '../TastingJournalMain/TastingJournalMain';
-import TastingJournalEntryForm from '../TastingJournalEntryForm/TastingJournalEntryForm';
+import AddEntryForm from '../AddEntryForm/AddEntryForm';
+import TastingJournalEditPage from '../TastingJournalEditPage/TastingJournalEditPage';
 import LoginPage from '../LoginPage/LoginPage';
 import ElevateAppBar from '../AppBar/AppBar';
 
@@ -73,7 +74,13 @@ class App extends Component {
               <ProtectedRoute
                 exact
                 path="/tasting-journal-entry-form"
-                component={TastingJournalEntryForm}
+                component={AddEntryForm}
+              />
+
+              <ProtectedRoute
+                exact
+                path="/tasting-journal-edit-form"
+                component={TastingJournalEditPage}
               />
               {/* If none of the other routes matched, we will show a 404. */}
               <Route render={() => <h1>404</h1>} />

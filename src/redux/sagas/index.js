@@ -5,6 +5,7 @@ import userSaga from './userSaga';
 import tastingJournalSaga from './tastingJournalSaga'
 import getShops from './getCoffeeShopsSaga';
 import getKansasCityCoffeeShops from './getKansasCitySaga';
+import TastingJournalEntry from './getTastingJournalEntrySaga';
 
 
 // rootSaga is the primary saga.
@@ -19,5 +20,6 @@ export default function* rootSaga() {
     tastingJournalSaga(),
     getKansasCityCoffeeShops(),
     getShops(),
+    TastingJournalEntry(),
     ]);
 }

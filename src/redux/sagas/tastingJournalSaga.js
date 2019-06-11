@@ -30,8 +30,8 @@ function* deleteEntry(action) {
 
 function* editEntry(action){
     try {
-        yield axios.put(`/api/tasting_journal`)
-        yield put({type: 'GET_ENTRIES'})
+        yield axios.put(`/api/tasting_journal`, action.payload)
+        yield put({type: 'GET_ENTRIES', payload: { user_id: action.payload.user_id }})
     } catch (error) {
         console.log('Error deleting from database:', error);
     }

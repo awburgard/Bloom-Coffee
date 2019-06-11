@@ -1,7 +1,7 @@
-const getTastingJournalEntry = (state = [], action) => {
+const getTastingJournalEntry = (state = {}, action) => {
     switch (action.type) {
       case 'SET_TASTING_JOURNAL_ENTRY':
-        return action.payload;
+        return action.payload[0];
       default:
         return state;
     }

@@ -4,7 +4,8 @@ import loginMode from './loginModeReducer';
 import user from './userReducer';
 import tastingJournalEntries from './tastingJournalEntriesReducer';
 import getKansasCity from './getKansasCityReducer';
-import getCoffeeShops from './getCoffeeShopsReducer';
+import getCoffeeShops from './setCoffeeShopsReducer';
+import getTastingJournalEntry from './getTastingJournalEntryReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   tastingJournalEntries,
   getKansasCity,
   getCoffeeShops,
+  getTastingJournalEntry,
 });
 
 export default rootReducer;

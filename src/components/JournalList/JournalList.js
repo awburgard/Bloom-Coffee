@@ -25,7 +25,12 @@ class JournalList extends Component {
             })
             coffeeShopName = coffeeShopName[0].shop_name
             return (
-                <JournalItem key={index} entry={entry} coffeeShopName={coffeeShopName} panelChange={this.panelChange} index={index}
+                <JournalItem
+                    key={index}
+                    entry={entry}
+                    coffeeShopName={coffeeShopName}
+                    panelChange={this.panelChange}
+                    index={index}
                     expanded={this.state.expanded} />
             )
         })

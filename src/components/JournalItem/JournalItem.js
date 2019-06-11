@@ -15,7 +15,7 @@ class JournalItem extends Component {
             type: `GET_ENTRY`,
             payload: this.props.entry.tasting_journal_id,
         })
-        this.props.history.push(`/tasting-journal-entry-form/?entry=${this.props.entry.tasting_journal_id}`)
+        this.props.history.push(`/tasting-journal-edit-form/?entry=${this.props.entry.tasting_journal_id}`)
     }
 
     deleteEntry = (event) => {
