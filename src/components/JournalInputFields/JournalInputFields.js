@@ -22,28 +22,12 @@ class JournalInputFields extends Component {
         balance: '',
         clean_cup: '',
         uniformity: '',
-        editing: false,
     }
 
     componentDidMount() {
-        if (this.props.initialData) {
-            this.setState({
-                description: this.props.initialData.description,
-                coffee_name: this.props.initialData.coffee_name,
-                coffee_shop_id: this.props.initialData.coffee_shop_id,
-                overall: this.props.initialData.overall,
-                aroma: this.props.initialData.aroma,
-                flavor: this.props.initialData.flavor,
-                aftertaste: this.props.initialData.aftertaste,
-                acidity: this.props.initialData.acidity,
-                sweetness: this.props.initialData.sweetness,
-                mouthfeel: this.props.initialData.mouthfeel,
-                balance: this.props.initialData.balance,
-                clean_cup: this.props.initialData.clean_cup,
-                uniformity: this.props.initialData.uniformity,
-                editing: true,
-            })
-        }
+        this.setState({
+            ...this.props.initialData,
+        })
     }
 
 
@@ -111,7 +95,7 @@ class JournalInputFields extends Component {
 
     render() {
         let conditionalButton = <Button onClick={this.addEntry}>Add Entry</Button>
-        if (this.state.editing === true){
+        if (this.props.editing === true) {
             conditionalButton = <Button onClick={this.updateEntry}>Update Entry</Button>
         }
 

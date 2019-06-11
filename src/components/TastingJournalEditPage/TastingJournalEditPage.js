@@ -21,10 +21,19 @@ class EditEntryForm extends Component {
             })
         }
     }
+
     render (){
+        let content = <div>LOADING</div>; // replace div with spinning loader icon
+
+        if (this.props.reduxState.setTastingJournalEntry
+            && this.props.reduxState.setTastingJournalEntry.coffee_shop_id
+        ) {
+            content = <JournalInputFields initialData={this.props.reduxState.setTastingJournalEntry} editing={true} />
+        }
+
         return (
             <div>
-                <JournalInputFields initialData={this.props.reduxState.setTastingJournalEntry}/>
+                {content}
             </div>
         )
     }
