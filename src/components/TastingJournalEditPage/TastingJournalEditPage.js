@@ -22,6 +22,12 @@ class EditEntryForm extends Component {
         }
     }
 
+    componentWillUnmount(){
+        this.props.dispatch({
+            type: 'CLEAR_TASTING_JOURNAL_ENTRY'
+        })
+    }
+
     render (){
         let content = <div>LOADING</div>; // replace div with spinning loader icon
 
