@@ -87,9 +87,11 @@ class JournalInputFields extends Component {
         if (selectedShop === '') {
             selectedShop = this.props.reduxState.getCoffeeShops[0].coffee_shop_id;
         }
+
         this.props.dispatch({
             type: 'EDIT_ENTRY',
             payload: {
+                tasting_journal_id: this.props.reduxState.getTastingJournalEntry.tasting_journal_id,
                 description: this.state.description,
                 coffee_name: this.state.coffee_name,
                 coffee_shop_id: selectedShop,
