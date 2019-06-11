@@ -17,6 +17,22 @@ router.get('/', (req, res) => {
         });
 });
 
+router.get('/:tasting_journal_id', (req, res) => {
+    const queryString = `SELECT * FROM "tasting_journal"
+                        JOIN "coffee_shop" ON "tasting_journal"."coffee_shop_id" = "coffee_shop"."coffee_shop_id"
+                        WHERE "tasting_journal"."user_id" = $1
+                        AND "tasting_journal"."tasting_journal_id" = $2;`;
+
+    pool.query(queryString, [req.user.user_id, req.params.tasting_journal_id])
+        .then((response) => {
+            res.send(response.rows);
+        })
+        .catch((err) => {
+            console.log(`Err: ${err}`);
+            res.sendStatus(500);
+        });
+});
+
 
 router.post('/', (req, res) => {
     const queryString = `INSERT INTO "tasting_journal"
