@@ -20,7 +20,7 @@ class JournalList extends Component {
     }
     render() {
         const journalEntries = this.props.reduxState.tastingJournalEntries.map((entry, index) => {
-            let coffeeShopName = this.props.reduxState.getCoffeeShops.filter((shop, index) => {
+            let coffeeShopName = this.props.reduxState.setCoffeeShops.filter((shop, index) => {
                 return shop.coffee_shop_id === entry.coffee_shop_id
             })
             coffeeShopName = coffeeShopName[0].shop_name

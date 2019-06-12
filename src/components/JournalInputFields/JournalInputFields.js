@@ -99,7 +99,7 @@ class JournalInputFields extends Component {
             conditionalButton = <Button onClick={this.updateEntry}>Update Entry</Button>
         }
 
-        const shopOptions = this.props.reduxState.getCoffeeShops.map((shop, index) => {
+        const shopOptions = this.props.reduxState.setCoffeeShops.map((shop, index) => {
             return (
                 <MenuItem value={shop.coffee_shop_id} key={index}>{shop.shop_name}</MenuItem>
             )

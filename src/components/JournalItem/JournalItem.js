@@ -27,7 +27,7 @@ class JournalItem extends Component {
         return (
             <ExpansionPanel expanded={this.props.expanded === `panel${this.props.index}`} onChange={this.props.panelChange(`panel${this.props.index}`)}>
                 <ExpansionPanelSummary>
-                {this.props.coffeeShopName} &nbsp;
+                    {this.props.coffeeShopName} &nbsp;
                 {this.props.entry.coffee_name}
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>

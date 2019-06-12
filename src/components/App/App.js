@@ -14,13 +14,12 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
-import AboutPage from '../AboutPage/AboutPage';
+import KCHomePage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import TastingJournalMain from '../TastingJournalMain/TastingJournalMain';
 import AddEntryForm from '../AddEntryForm/AddEntryForm';
 import TastingJournalEditPage from '../TastingJournalEditPage/TastingJournalEditPage';
 import LoginPage from '../LoginPage/LoginPage';
-import ElevateAppBar from '../AppBar/AppBar';
 
 import './App.css';
 
@@ -33,7 +32,6 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <ElevateAppBar />
         <CssBaseline />
         <Router>
           <div>
@@ -52,7 +50,7 @@ class App extends Component {
               <Route
                 exact
                 path="/about"
-                component={AboutPage}
+                component={KCHomePage}
               />
               {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
