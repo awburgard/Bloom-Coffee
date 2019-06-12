@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps'
 import ImageList from '../ImageList/ImageList';
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bulma/css/bulma.css';
+import './KCMO.css'
 
 class KCHomePage extends Component {
   componentDidMount() {
@@ -13,8 +14,12 @@ class KCHomePage extends Component {
   render() {
     return (
       <div>
-        <div className="jumbotron">
-          Welcome to Kansas City
+        <div className= "bg-img">
+        <div className="hero-body">
+          <div className="container">
+            <h1 className="title"> Welcome to Kansas City</h1>
+          </div>
+        </div>
         </div>
         <ImageList />
       </div>
