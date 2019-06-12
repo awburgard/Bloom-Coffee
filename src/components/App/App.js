@@ -9,7 +9,7 @@ import {
 
 import { connect } from 'react-redux';
 
-import Nav from '../Nav/Nav';
+// import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
@@ -20,6 +20,7 @@ import TastingJournalMain from '../TastingJournalMain/TastingJournalMain';
 import AddEntryForm from '../AddEntryForm/AddEntryForm';
 import TastingJournalEditPage from '../TastingJournalEditPage/TastingJournalEditPage';
 import LoginPage from '../LoginPage/LoginPage';
+import ElevateAppBar from '../ElevateAppBar/ElevateAppBar';
 
 import './App.css';
 
@@ -35,7 +36,8 @@ class App extends Component {
         <CssBaseline />
         <Router>
           <div>
-            <Nav />
+            <ElevateAppBar/>
+            {/* <Nav /> */}
             <Switch>
               {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
               <Redirect exact from="/" to="/home" />

@@ -42,7 +42,7 @@ const styles = (theme: Theme) => createStyles({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: theme.palette.common.black,
+        color: theme.palette.common.white,
     },
     imageSrc: {
         position: 'absolute',
@@ -96,8 +96,6 @@ class ImageItem extends Component {
     }
 
     render() {
-        const imagePath = require(`../../${this.props.shop.shop_logo}`);
-        console.log(imagePath)
         return (
             <div className={this.props.classes.root}>
                 <ButtonBase
@@ -106,10 +104,13 @@ class ImageItem extends Component {
                     className={this.props.classes.image}
                     focusVisibleClassName={this.props.classes.focusVisible}
                     onClick={this.handleDialouge}
+                    style={{
+                        width: `100%`,
+                    }}
                 >
                     <span className={this.props.classes.imageSrc}
                         style={{
-                            backgroundImage: `url(${imagePath})`
+                            backgroundImage: `url(${this.props.shop.shop_logo})`
                         }}
                     >
 
