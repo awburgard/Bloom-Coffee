@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
-import ImageItem from '../ImageItem/ImageItem'
+import ImageItem from '../ImageItem/ImageItem';
 
 class ImageList extends Component {
     render() {
