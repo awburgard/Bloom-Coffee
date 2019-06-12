@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps'
 import ImageList from '../ImageList/ImageList';
+import 'bootstrap/dist/css/bootstrap.css'
 
 class KCHomePage extends Component {
   componentDidMount() {
@@ -12,7 +13,9 @@ class KCHomePage extends Component {
   render() {
     return (
       <div>
-        Welcome to Kansas City
+        <div className="jumbotron">
+          Welcome to Kansas City
+        </div>
         <ImageList />
       </div>
     )

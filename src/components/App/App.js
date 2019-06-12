@@ -6,14 +6,9 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-
 import { connect } from 'react-redux';
-
-// import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
-
 import KCHomePage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import TastingJournalMain from '../TastingJournalMain/TastingJournalMain';
@@ -33,11 +28,9 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-        <CssBaseline />
-        <Router>
-          <div>
-            <ElevateAppBar/>
-            {/* <Nav /> */}
+        <CssBaseline>
+          <Router>
+            <ElevateAppBar />
             <Switch>
               {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
               <Redirect exact from="/" to="/home" />
@@ -86,9 +79,9 @@ class App extends Component {
               <Route render={() => <h1>404</h1>} />
             </Switch>
             <Footer />
-          </div>
-        </Router>
-      </React.Fragment>
+          </Router>
+        </CssBaseline>
+      </React.Fragment >
 
     )
   }

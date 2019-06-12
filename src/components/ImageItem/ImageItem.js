@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
 import { withStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, ButtonBase, Typography, Slide } from '@material-ui/core/';
+import { Dialog , DialogContent , DialogTitle, ButtonBase, Typography } from '@material-ui/core/';
 
 
 const styles = (theme: Theme) => createStyles({
@@ -89,7 +89,7 @@ class ImageItem extends Component {
         })
     }
 
-    handleClose = ()=> {
+    handleClose = () => {
         this.setState({
             show: false,
         })

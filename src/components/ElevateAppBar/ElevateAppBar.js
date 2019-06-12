@@ -1,15 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import {AppBar,Toolbar, Typography, useScrollTrigger} from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
-import './ElevateAppBar.css'
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -32,9 +27,8 @@ ElevationScroll.propTypes = {
 function ElevateAppBar(props) {
   return (
     <React.Fragment>
-      <CssBaseline />
       <ElevationScroll {...props}>
-        <AppBar>
+        <AppBar >
           <Toolbar>
             <Typography className="nav-left" variant="h6">Bloom Coffee</Typography>
             <div className="nav-right">
@@ -50,13 +44,13 @@ function ElevateAppBar(props) {
                   <LogOutButton className="nav-link" />
                   <Link className="nav-link" to="/tasting-journal-main">
                     Tasting Journal
-          </Link>
+              </Link>
                 </>
               )}
               {/* Always show this link since the about page is not protected */}
               <Link className="nav-link" to="/about">
                 About
-      </Link>
+            </Link>
             </div>
           </Toolbar>
         </AppBar>
