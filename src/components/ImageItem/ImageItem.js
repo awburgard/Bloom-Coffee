@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
 import { withStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { Dialog , DialogContent , DialogTitle, ButtonBase, Typography } from '@material-ui/core/';
+import { Dialog , DialogContent , DialogTitle, ButtonBase, Typography, Button } from '@material-ui/core/';
 
 
 const styles = (theme: Theme) => createStyles({
@@ -133,6 +133,9 @@ class ImageItem extends Component {
                     <DialogTitle>Address</DialogTitle>
                     <DialogContent>
                         {this.props.shop.shop_address}
+                        <Button>
+                            <a href={this.props.shop.shop_link}>Visit</a>
+                        </Button>
                     </DialogContent>
                 </Dialog>
             </div>
