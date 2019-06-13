@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');
+
 .bg-img {
-    background-image: url("/images/kcmo.jpg");
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/kcmo.jpg");
     background-position: right left;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -7,6 +9,6 @@
 }
 
 .shadow-text {
-    text-shadow: 2px 2px #999;
     font-size: 125px;
+    font-family: 'Rock Salt', cursive;
 }
