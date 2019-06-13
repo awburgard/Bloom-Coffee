@@ -1,9 +1,12 @@
 .bg-img {
-    background-image: url(/public/images/kcmo.jpg) ;
-    background-position: center center;
-    background-repeat:  no-repeat;
+    background-image: url("/images/kcmo.jpg");
+    background-position: right left;
+    background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size:  cover;
-    background-color: #999;
+    background-size: cover;
+}
 
+.shadow-text {
+    text-shadow: 2px 2px #999;
+    font-size: 125px;
 }

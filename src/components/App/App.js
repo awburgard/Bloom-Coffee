@@ -16,7 +16,6 @@ import AddEntryForm from '../AddEntryForm/AddEntryForm';
 import TastingJournalEditPage from '../TastingJournalEditPage/TastingJournalEditPage';
 import LoginPage from '../LoginPage/LoginPage';
 import ElevateAppBar from '../ElevateAppBar/ElevateAppBar';
-import Container from '@material-ui/core/Container'
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 import './App.css';

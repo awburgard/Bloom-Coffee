@@ -29,6 +29,7 @@ const styles = (theme: Theme) => createStyles({
             },
             '& $imageTitle': {
                 border: '4px solid currentColor',
+                backgroundColor: "rgba(0,0,0,0.5)"
             },
         },
     },

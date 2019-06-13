@@ -14,10 +14,10 @@ class KCHomePage extends Component {
   render() {
     return (
       <div>
-        <div className= "bg-img">
+        <div className= "hero is-large bg-img">
         <div className="hero-body">
           <div className="container">
-            <h1 className="title"> Welcome to Kansas City</h1>
+            <h1 className="shadow-text title has-text-light has-text-centered is-family-primary"> Welcome to Kansas City</h1>
           </div>
         </div>
         </div>
