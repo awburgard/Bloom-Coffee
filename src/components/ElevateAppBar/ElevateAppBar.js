@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -26,6 +27,7 @@ ElevationScroll.propTypes = {
 
 function ElevateAppBar(props) {
   return (
+    <MuiThemeProvider theme={props.theme}>
     <React.Fragment>
       <ElevationScroll {...props}>
         <AppBar >
@@ -50,9 +52,9 @@ function ElevateAppBar(props) {
                     {props.reduxState.user.user_id && (
                       <>
                         <Grid item>
-                          <LogOutButton />
+                          <LogOutButton/>
                         </Grid>
-                        <Grid>
+                        <Grid item xs={1}>
                         <Link to="/tasting-journal-main">
                           <Typography>Tasting Journal</Typography>
                         </Link>
@@ -83,6 +85,7 @@ function ElevateAppBar(props) {
       </ElevationScroll>
       <Toolbar />
     </React.Fragment>
+    </MuiThemeProvider>
   );
 }
 export default connect(mapReduxStateToProps)(ElevateAppBar);

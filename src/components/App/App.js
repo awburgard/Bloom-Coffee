@@ -18,6 +18,7 @@ import ElevateAppBar from '../ElevateAppBar/ElevateAppBar';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
 import './App.css';
+import LandingPage from '../LandingPage/LandingPage';
 
 const theme = createMuiTheme({
   palette: {
@@ -44,50 +45,56 @@ class App extends Component {
         <React.Fragment>
           <CssBaseline>
             <Router>
-                <ElevateAppBar />
-                <Switch>
-                  {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-                  <Redirect exact from="/" to="/home" />
+              <ElevateAppBar />
+              <Switch>
+                {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
+                <Redirect exact from="/" to="/landing" />
 
-                  <Route
-                    exact
-                    path="/home"
-                    component={LoginPage}
-                  />
-                  {/* Visiting localhost:3000/about will show the about page.
+                <Route
+                  exact
+                  path="/home"
+                  component={LoginPage}
+                />
+
+                <Route
+                  exact
+                  path="/landing"
+                  component={LandingPage}
+                />
+                {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
-                  <Route
-                    exact
-                    path="/kansas-city"
-                    component={HomePage}
-                  />
-                  {/* For protected routes, the view could show one of several things on the same route.
+                <Route
+                  exact
+                  path="/kansas-city"
+                  component={HomePage}
+                />
+                {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.
             Even though it seems like they are different pages, the user is always on localhost:3000/home */}
-                  {/* This works the same as the other protected route, except that if the user is logged in,
+                {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
-                  <ProtectedRoute
-                    exact
-                    path="/tasting-journal-main"
-                    component={TastingJournalMain}
-                  />
+                <ProtectedRoute
+                  exact
+                  path="/tasting-journal-main"
+                  component={TastingJournalMain}
+                />
 
-                  <ProtectedRoute
-                    exact
-                    path="/tasting-journal-entry-form"
-                    component={AddEntryForm}
-                  />
+                <ProtectedRoute
+                  exact
+                  path="/tasting-journal-entry-form"
+                  component={AddEntryForm}
+                />
 
-                  <ProtectedRoute
-                    exact
-                    path="/tasting-journal-edit-form"
-                    component={TastingJournalEditPage}
-                  />
-                  {/* If none of the other routes matched, we will show a 404. */}
-                  <Route render={() => <h1>404</h1>} />
-                </Switch>
-                <Footer />
+                <ProtectedRoute
+                  exact
+                  path="/tasting-journal-edit-form"
+                  component={TastingJournalEditPage}
+                />
+                {/* If none of the other routes matched, we will show a 404. */}
+                <Route render={() => <h1>404</h1>} />
+              </Switch>
+              <Footer />
             </Router>
           </CssBaseline>
         </React.Fragment >

@@ -131,7 +131,7 @@ class ImageItem extends Component {
                     </span>
                 </ButtonBase>
                 <Dialog open={this.state.show} onClose={this.handleClose}>
-                    <DialogTitle>Address</DialogTitle>
+                    <DialogTitle>Info</DialogTitle>
                     <DialogContent>
                         <Button>
                             <a href={this.props.shop.shop_address} target="_blank">Visit</a>
