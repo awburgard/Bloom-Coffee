@@ -19,10 +19,10 @@ class TastingJournalMain extends Component {
     render() {
         return (
             <div>
-            <div className="hero is-large tasting-bg-img">
+            <div className="hero is-large tasting-bg-img text-markup">
               <div className="hero-body">
                 <div className="container">
-                  <h1 className="title has-text-white has-text-centered">
+                  <h1 className="text-markup title has-text-white has-text-centered">
                     Tasting Journal
                 </h1>
                 </div>

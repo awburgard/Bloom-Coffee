@@ -1,14 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
 
 .landing-bg-img {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/Bloom.jpg");
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/full-bloom.png");
     background-position: center center;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-attachment: fixed;
-    background-size: cover;
 }
 
 .text-markup {
     font-size: 125px;
     font-family: 'Permanent Marker', cursive;
+}
+
+.about-bg-img {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/dark-honeycomb.png");
+    background-position: center center;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+.use-bg-img {
+    background-image:url("/images/stripes-light.png");
+    background-position: center center;
+    background-repeat: repeat;
+    background-attachment: fixed;
 }

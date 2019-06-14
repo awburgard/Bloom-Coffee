@@ -24,7 +24,7 @@ class LandingPage extends Component {
             </div>
           </div>
         </div>
-        <div className="hero is-large is-dark">
+        <div className="hero is-large is-dark about-bg-img">
           <div className="hero-body">
             <div className="container">
               <h2 className="text-markup title has-text-white has-text-centered">
@@ -36,10 +36,10 @@ class LandingPage extends Component {
             </div>
           </div>
         </div>
-        <div className="hero is-large">
+        <div className="hero is-large use-bg-img">
           <div className="hero-body">
             <div className="container">
-              <h2 className="text-markup  title has-text-dark has-text-centered">
+              <h2 className="text-markup title has-text-dark has-text-centered">
                 How to use the app
             </h2>
             <h2 className= "subtitle has-text-dark has-text-centered">
