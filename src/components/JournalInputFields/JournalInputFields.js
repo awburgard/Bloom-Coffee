@@ -32,6 +32,7 @@ class JournalInputFields extends Component {
 
 
     handleInputChangeFor = propertyName => (event) => {
+        console.log(event.target)
         this.setState({
             [propertyName]: event.target.value,
         });
@@ -61,7 +62,7 @@ class JournalInputFields extends Component {
                 uniformity: this.state.uniformity,
             }
         })
-        this.props.history.push('tasting-journal-main')
+        this.props.handleClose();
     };
 
 
@@ -74,7 +75,7 @@ class JournalInputFields extends Component {
         this.props.dispatch({
             type: 'EDIT_ENTRY',
             payload: {
-                tasting_journal_id: this.props.reduxState.setTastingJournalEntry.tasting_journal_id,
+                tasting_journal_id: this.props.initialData.tasting_journal_id,
                 description: this.state.description,
                 coffee_name: this.state.coffee_name,
                 coffee_shop_id: selectedShop,

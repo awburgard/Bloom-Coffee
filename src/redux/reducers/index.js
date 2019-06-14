@@ -6,6 +6,7 @@ import tastingJournalEntries from './tastingJournalEntriesReducer';
 import setKansasCity from './setKansasCityReducer';
 import setCoffeeShops from './setCoffeeShopsReducer';
 import setTastingJournalEntry from './setTastingJournalEntryReducer';
+import entryEditDialogShowReducer from './entryEditDialogShowReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -21,6 +22,7 @@ const rootReducer = combineReducers({
   setKansasCity,
   setCoffeeShops,
   setTastingJournalEntry,
+  entryEditDialogShowReducer,
 });
 
 export default rootReducer;

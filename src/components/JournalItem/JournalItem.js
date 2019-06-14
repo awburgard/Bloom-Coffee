@@ -5,6 +5,8 @@ import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { withStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { Dialog, DialogContent, DialogTitle, ButtonBase, Typography, Button, Grid } from '@material-ui/core/';
+import EntryInfoDialog from '../EntryInfoDialog/EntryInfoDialog';
+import EntryEditDialog from '../EntryEditDialog/EntryEditDialog';
 
 
 const styles = (theme: Theme) => createStyles({
@@ -83,7 +85,8 @@ const styles = (theme: Theme) => createStyles({
 
 class JournalItem extends Component {
     state = {
-        show: false,
+        showInfo: false,
+        showEdit: false,
     }
 
     editEntry = (event) => {
@@ -99,19 +102,27 @@ class JournalItem extends Component {
             type: 'DELETE_ENTRY',
             payload: this.props.entry.tasting_journal_id
         })
+        this.handleClose();
     }
 
     handleDialog = () => {
         this.setState({
-            show: true,
+            showInfo: true,
         })
     }
 
     handleClose = () => {
         this.setState({
-            show: false,
+            showInfo: false,
         })
     }
+
+    handleAddToggle = () => {
+        this.props.dispatch({
+            type: 'ENTRY_EDIT_DIALOG_SHOW'
+        })
+    }
+
     render() {
         return (
             <div>
@@ -146,50 +157,9 @@ class JournalItem extends Component {
                         </Typography>
                     </span>
                 </ButtonBase>
-                <Dialog open={this.state.show} onClose={this.handleClose}>
-                    <DialogTitle>Entry</DialogTitle>
-                    <Grid container alignItems="center">
-                        <DialogContent>
-                            <Grid item xs={4}>
-                                <Typography>{this.props.coffeeShopName}</Typography>
-                            </Grid>
-                            <Grid item xs={4}>
-                            <Typography>Overall: {this.props.entry.overall}</Typography>
-                            </Grid>
-                            <Grid item xs={4}>
-                            <Typography>Aroma: {this.props.entry.aroma}</Typography>
-                            </Grid>
-                            <Grid item xs={4}>
-                            <Typography>Aftertaste: {this.props.entry.aftertaste}</Typography>
-                            </Grid>
-                            <Grid item xs={4}>
-                            <Typography>Acidity: {this.props.entry.acidity}</Typography>
-                            </Grid>
-                            <Grid item xs={4}>
-                            <Typography>Sweetness: {this.props.entry.sweetness}</Typography>
-                            </Grid>
-                            <Grid item xs={4}>
-                            <Typography>Mouthfeel: {this.props.entry.mouthfeel}</Typography>
-                            </Grid>
-                            <Grid item xs={4}>
-                            <Typography>Balance: {this.props.entry.balance}</Typography>
-                            </Grid>
-                            <Grid item xs={4}>
-                            <Typography>Clean Cup: {this.props.entry.clean_cup}</Typography>
-                            </Grid>
-                            <Grid item xs={4}>
-                            <Typography>Uniformity: {this.props.entry.uniformity}</Typography>
-                            </Grid>
-                            <Grid item xs={4}>
-                            <Typography>Description: {this.props.entry.description}</Typography>
-                            </Grid>
-                            <Grid item xs={4}>
-                            <Button onClick={this.deleteEntry} color="primary"><DeleteIcon /></Button>
-                            <Button onClick={this.editEntry}>Edit</Button>
-                            </Grid>
-                        </DialogContent>
-                    </Grid>
-                </Dialog>
+                <EntryInfoDialog editEntry={this.editEntry} deleteEntry={this.deleteEntry} show={this.state.showInfo} entry={this.props.entry} handleClose={this.handleClose} coffeeShopName={this.props.coffeeShopName}/>
+                <EntryEditDialog show={this.props.reduxState.entryEditDialogShowReducer} entry={this.props.entry} handleAddToggle={this.handleAddToggle} coffeeShopName={this.props.coffeeShopName}/>
+
             </div>
         )
     }

@@ -7,6 +7,7 @@ import AddIcon from '@material-ui/icons/Add';
 import { withRouter } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid'
 import './List.css';
+import EntryEditDialog from '../EntryEditDialog/EntryEditDialog';
 
 class JournalList extends Component {
     state = {
@@ -14,7 +15,9 @@ class JournalList extends Component {
     }
 
     addEntry = (event) => {
-        this.props.history.push('/tasting-journal-entry-form')
+        this.props.dispatch({
+            type: 'ENTRY_EDIT_DIALOG_SHOW'
+        })
     }
 
     render() {
@@ -38,10 +41,12 @@ class JournalList extends Component {
         return (
             <div className="hero list-bg-img">
                 <div className="hero-body">
+                <Button onClick={this.addEntry} size="large" color="secondary"><AddIcon />ADD</Button>
                     <Grid container>
                         {journalEntries}
                     </Grid>
-                    <Button onClick={this.addEntry} size="large" color="secondary"><AddIcon /></Button>
+                    <EntryEditDialog show={this.props.reduxState.entryEditDialogShowReducer}
+                    handleAddToggle={this.addEntry}/>
                 </div>
             </div>
         )

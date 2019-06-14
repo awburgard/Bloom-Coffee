@@ -28,61 +28,61 @@ ElevationScroll.propTypes = {
 function ElevateAppBar(props) {
   return (
     <MuiThemeProvider theme={props.theme}>
-    <React.Fragment>
-      <ElevationScroll {...props}>
-        <AppBar >
-          <Toolbar>
-            <Grid container alignItems="center">
-              <Grid item xs={6}>
-                <Typography variant="h4" component="h6">Bloom Coffee</Typography>
-              </Grid>
-              <Grid item xs={6}>
-                <Grid container spacing={1} justify="flex-end" alignItems="center">
-                  <Grid item>
-                    <Link to="/home">
-                      {/* Show this link if they are logged in or not,
+      <React.Fragment>
+        <ElevationScroll {...props}>
+          <AppBar >
+            <Toolbar>
+              <Grid container alignItems="center">
+                <Grid item xs={6}>
+                  <Typography variant="h4" component="h6">Bloom Coffee</Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <Grid container spacing={1} justify="flex-end" alignItems="center">
+                    <Grid item>
+                      <Link to="/kansas-city">
+                        <Typography color="secondary">Home</Typography>
+                      </Link>
+                    </Grid>
+                    {!props.reduxState.user.user_id && (
+                      <Grid item>
+                        <Link to="/home">
+                          {/* Show this link if they are logged in or not,
                  but call this link 'Home' if they are logged in,
                   and call this link 'Login / Register' if they are not */}
-                      <Typography>{props.reduxState.user.user_id ? 'Home' : 'Login / Register'}</Typography>
-                    </Link>
-                  </Grid>
+                          <Typography color="secondary">{props.reduxState.user.user_id ? 'Home' : 'Login / Register'}</Typography>
+                        </Link>
+                      </Grid>
+                    )}
 
-                  {/* Show the link to the info page and the logout button if the user is logged in */}
+                    {/* Show the link to the info page and the logout button if the user is logged in */}
                     {props.reduxState.user.user_id && (
-                      <>
-                        <Grid item>
-                          <LogOutButton/>
-                        </Grid>
-                        <Grid item>
+                      <Grid item>
                         <Link to="/tasting-journal-main">
-                          <Typography>Tasting Journal</Typography>
+                          <Typography color="secondary">Tasting Journal</Typography>
                         </Link>
-                        </Grid>
-                      </>
+                      </Grid>
                     )}
-                  <Grid item>
                     {!props.reduxState.user.user_id && (
-                      <>
+                      <Grid item>
                         <Link onClick={() => { props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }} to="/home">
-                          <Typography>Tasting Journal</Typography>
+                          <Typography color="secondary">Tasting Journal</Typography>
                         </Link>
-                      </>
+                      </Grid>
                     )}
-                  </Grid>
-                  {/* Always show this link since the Home page is not protected */}
-                  <Grid item>
-                    <Link to="/kansas-city">
-                      <Typography>Home</Typography>
-                    </Link>
+                    {/* Always show this link since the Home page is not protected */}
+                    {props.reduxState.user.user_id && (
+                      <Grid item>
+                        <LogOutButton />
+                      </Grid>
+                    )}
                   </Grid>
                 </Grid>
               </Grid>
-            </Grid>
-          </Toolbar>
-        </AppBar>
-      </ElevationScroll>
-      <Toolbar />
-    </React.Fragment>
+            </Toolbar>
+          </AppBar>
+        </ElevationScroll>
+        <Toolbar />
+      </React.Fragment>
     </MuiThemeProvider>
   );
 }

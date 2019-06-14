@@ -51,10 +51,10 @@ class App extends Component {
                 {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
                 <Redirect exact from="/" to="/landing" />
 
-                <Route
+                <ProtectedRoute
                   exact
                   path="/home"
-                  component={LoginPage}
+                  component={HomePage}
                 />
 
                 <Route
