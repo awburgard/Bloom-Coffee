@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Button, Grid, Paper, Input, Typography} from '@material-ui/core'
-import FormGroup from '@material-ui/core/FormGroup';
+import { Button, Grid, Input, Typography } from '@material-ui/core'
 
 class RegisterPage extends Component {
   state = {
@@ -37,81 +36,83 @@ class RegisterPage extends Component {
 
   render() {
     return (
-      <FormGroup>
-      <Grid container spacing={3}>
-        <Grid item>
-        {this.props.errors.registrationMessage && (
-          <h2
-            className="alert"
-            role="alert"
-          >
-            {this.props.errors.registrationMessage}
-          </h2>
-        )}
+      <>
         <form onSubmit={this.registerUser}>
-          <Typography variant="h3" gutterBottom marked="center" align="center">Register</Typography>
-          <div>
-            <label htmlFor="username">
+          <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Typography variant="h3" gutterBottom marked="center" align="center">Register</Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography align="center" gutterBottom htmlFor="username">
               Username:
               <Input
+                required
                 type="text"
                 name="username"
                 value={this.state.username}
                 onChange={this.handleInputChangeFor('username')}
               />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="password">
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography align="center" gutterBottom htmlFor="password">
               Password:
               <Input
+                required
                 type="password"
                 name="password"
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
               />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="first_name">
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography align="center" gutterBottom htmlFor="first_name">
               First Name:
               <Input
+                required
                 type="text"
                 name="first_name"
                 value={this.state.first_name}
                 onChange={this.handleInputChangeFor('first_name')}
               />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="last_name">
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography align="center" gutterBottom htmlFor="last_name">
               Last Name:
               <Input
+                required
                 type="text"
                 name="last_name"
                 value={this.state.last_name}
                 onChange={this.handleInputChangeFor('last_name')}
               />
-            </label>
-          </div>
-          <div>
-            <Input
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Button
+              fullWidth={'true'}
               className="register"
               type="submit"
               name="submit"
               value="Register"
-            />
-          </div>
+            >Register
+                </Button>
+          </Grid>
+          </Grid>
         </form>
+        <Grid container>
+        <Grid item xs={12}>
           <Button
-            type="button"
+            fullWidth={'true'}
             onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
           >
             Login
           </Button>
         </Grid>
-      </Grid>
-      </FormGroup>
+        </Grid>
+        </>
     );
   }
 }

@@ -8,20 +8,24 @@ import { withRouter } from 'react-router-dom';
 
 
 class JournalInputFields extends Component {
-    state = {
-        description: '',
-        coffee_name: '',
-        coffee_shop_id: '',
-        overall: '',
-        aroma: '',
-        flavor: '',
-        aftertaste: '',
-        acidity: '',
-        sweetness: '',
-        mouthfeel: '',
-        balance: '',
-        clean_cup: '',
-        uniformity: '',
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            description: '',
+            coffee_name: '',
+            coffee_shop_id: 'default',
+            overall: '',
+            aroma: '',
+            flavor: '',
+            aftertaste: '',
+            acidity: '',
+            sweetness: '',
+            mouthfeel: '',
+            balance: '',
+            clean_cup: '',
+            uniformity: '',
+        }
     }
 
     componentDidMount() {
@@ -104,86 +108,125 @@ class JournalInputFields extends Component {
                 <MenuItem value={shop.coffee_shop_id} key={index}>{shop.shop_name}</MenuItem>
             )
         })
+
+        shopOptions.unshift(<MenuItem value={'default'} key={-1}>Select a Coffee Shop</MenuItem>)
         return (
+            <div>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
-                        <Grid item={6}>
                         <Select
+                            variant="filled"
                             type="text"
                             value={this.state.coffee_shop_id}
                             onChange={this.handleInputChangeFor('coffee_shop_id')}>
                             {shopOptions}
                         </Select>
-                        </Grid>
-                        <Grid item={6}>
-                    <TextField
-                        id="standard-name"
-                        placeholder="description"
-                        name="message"
-                        rows="10"
-                        cols="30"
-                        value={this.state.description}
-                        onChange={this.handleInputChangeFor('description')}>
-                    </TextField>
                     </Grid>
-                    <Input
-                        type="text"
-                        placeholder="coffee name"
-                        value={this.state.coffee_name}
-                        onChange={this.handleInputChangeFor('coffee_name')} />
-                    <Input
-                        type="number"
-                        placeholder="overall"
-                        value={this.state.overall}
-                        onChange={this.handleInputChangeFor('overall')} />
-                    <Input
-                        type="number"
-                        placeholder="aroma"
-                        value={this.state.aroma}
-                        onChange={this.handleInputChangeFor('aroma')} />
-                    <Input
-                        type="number"
-                        placeholder="flavor"
-                        value={this.state.flavor}
-                        onChange={this.handleInputChangeFor('flavor')} />
-                    <Input
-                        type="number"
-                        placeholder="aftertaste"
-                        value={this.state.aftertaste}
-                        onChange={this.handleInputChangeFor('aftertaste')} />
-                    <Input
-                        type="number"
-                        placeholder="acidity"
-                        value={this.state.acidity}
-                        onChange={this.handleInputChangeFor('acidity')} />
-                    <Input
-                        type="number"
-                        placeholder="sweetness"
-                        value={this.state.sweetness}
-                        onChange={this.handleInputChangeFor('sweetness')} />
-                    <Input
-                        type="number"
-                        placeholder="mouthfeel"
-                        value={this.state.mouthfeel}
-                        onChange={this.handleInputChangeFor('mouthfeel')} />
-                    <Input
-                        type="number"
-                        placeholder="balance"
-                        value={this.state.balance}
-                        onChange={this.handleInputChangeFor('balance')} />
-                    <Input
-                        type="number"
-                        placeholder="clean cup"
-                        value={this.state.clean_cup}
-                        onChange={this.handleInputChangeFor('clean_cup')} />
-                    <Input
-                        type="number"
-                        placeholder="uniformity"
-                        value={this.state.uniformity}
-                        onChange={this.handleInputChangeFor('uniformity')} />
-                    {conditionalButton}
+                    <Grid item xs={6}>
+                        <TextField
+                            fullWidth={true}
+                            id="standard-name"
+                            placeholder="description"
+                            name="message"
+                            rows="10"
+                            cols="30"
+                            value={this.state.description}
+                            onChange={this.handleInputChangeFor('description')}>
+                        </TextField>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Input
+                            fullWidth={true}
+                            type="text"
+                            placeholder="coffee name"
+                            value={this.state.coffee_name}
+                            onChange={this.handleInputChangeFor('coffee_name')} />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Input
+                            fullWidth={true}
+                            type="number"
+                            placeholder="overall"
+                            value={this.state.overall}
+                            onChange={this.handleInputChangeFor('overall')} />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Input
+                            fullWidth={true}
+                            type="number"
+                            placeholder="aroma"
+                            value={this.state.aroma}
+                            onChange={this.handleInputChangeFor('aroma')} />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Input
+                            fullWidth={true}
+                            type="number"
+                            placeholder="flavor"
+                            value={this.state.flavor}
+                            onChange={this.handleInputChangeFor('flavor')} />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Input
+                            fullWidth={true}
+                            type="number"
+                            placeholder="aftertaste"
+                            value={this.state.aftertaste}
+                            onChange={this.handleInputChangeFor('aftertaste')} />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Input
+                            fullWidth={true}
+                            type="number"
+                            placeholder="acidity"
+                            value={this.state.acidity}
+                            onChange={this.handleInputChangeFor('acidity')} />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Input
+                            fullWidth={true}
+                            type="number"
+                            placeholder="sweetness"
+                            value={this.state.sweetness}
+                            onChange={this.handleInputChangeFor('sweetness')} />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Input
+                            fullWidth={true}
+                            type="number"
+                            placeholder="mouthfeel"
+                            value={this.state.mouthfeel}
+                            onChange={this.handleInputChangeFor('mouthfeel')} />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Input
+                            fullWidth={true}
+                            type="number"
+                            placeholder="balance"
+                            value={this.state.balance}
+                            onChange={this.handleInputChangeFor('balance')} />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Input
+                            fullWidth={true}
+                            type="number"
+                            placeholder="clean cup"
+                            value={this.state.clean_cup}
+                            onChange={this.handleInputChangeFor('clean_cup')} />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Input
+                            fullWidth={true}
+                            type="number"
+                            placeholder="uniformity"
+                            value={this.state.uniformity}
+                            onChange={this.handleInputChangeFor('uniformity')} />
                     </Grid>
                 </Grid>
+                <div>
+                    {conditionalButton}
+                </div>
+            </div>
         )
     }
 }
