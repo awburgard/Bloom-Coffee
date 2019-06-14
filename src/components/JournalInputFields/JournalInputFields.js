@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
-import { TextField, Select, MenuItem, FormControl, InputLabel } from '@material-ui/core';
+import { TextField, Select, MenuItem, FormControl, InputLabel, Container } from '@material-ui/core';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import { withRouter } from 'react-router-dom';
@@ -105,82 +105,85 @@ class JournalInputFields extends Component {
             )
         })
         return (
-            <FormControl>
-                <TextField
-                    id="standard-name"
-                    name="message"
-                    rows="10"
-                    cols="30"
-                    value={this.state.description}
-                    onChange={this.handleInputChangeFor('description')}>
-                </TextField>
+            <Container>
                 <FormControl>
-                    <InputLabel>Coffee Shop Name</InputLabel>
-                    <Select
+                    <FormControl>
+                        <InputLabel>Coffee Shop Name</InputLabel>
+                        <Select
+                            type="text"
+                            value={this.state.coffee_shop_id}
+                            placeholder="coffee shop name"
+                            onChange={this.handleInputChangeFor('coffee_shop_id')}>
+                            {shopOptions}
+                        </Select>
+                    </FormControl>
+                    <TextField
+                        id="standard-name"
+                        placeholder="overall"
+                        name="message"
+                        rows="10"
+                        cols="30"
+                        value={this.state.description}
+                        onChange={this.handleInputChangeFor('description')}>
+                    </TextField>
+                    <Input
                         type="text"
-                        value={this.state.coffee_shop_id}
-                        placeholder="coffee shop name"
-                        onChange={this.handleInputChangeFor('coffee_shop_id')}>
-                        {shopOptions}
-                    </Select>
+                        placeholder="coffee name"
+                        value={this.state.coffee_name}
+                        onChange={this.handleInputChangeFor('coffee_name')} />
+                    <Input
+                        type="number"
+                        placeholder="overall"
+                        value={this.state.overall}
+                        onChange={this.handleInputChangeFor('overall')} />
+                    <Input
+                        type="number"
+                        placeholder="aroma"
+                        value={this.state.aroma}
+                        onChange={this.handleInputChangeFor('aroma')} />
+                    <Input
+                        type="number"
+                        placeholder="flavor"
+                        value={this.state.flavor}
+                        onChange={this.handleInputChangeFor('flavor')} />
+                    <Input
+                        type="number"
+                        placeholder="aftertaste"
+                        value={this.state.aftertaste}
+                        onChange={this.handleInputChangeFor('aftertaste')} />
+                    <Input
+                        type="number"
+                        placeholder="acidity"
+                        value={this.state.acidity}
+                        onChange={this.handleInputChangeFor('acidity')} />
+                    <Input
+                        type="number"
+                        placeholder="sweetness"
+                        value={this.state.sweetness}
+                        onChange={this.handleInputChangeFor('sweetness')} />
+                    <Input
+                        type="number"
+                        placeholder="mouthfeel"
+                        value={this.state.mouthfeel}
+                        onChange={this.handleInputChangeFor('mouthfeel')} />
+                    <Input
+                        type="number"
+                        placeholder="balance"
+                        value={this.state.balance}
+                        onChange={this.handleInputChangeFor('balance')} />
+                    <Input
+                        type="number"
+                        placeholder="clean cup"
+                        value={this.state.clean_cup}
+                        onChange={this.handleInputChangeFor('clean_cup')} />
+                    <Input
+                        type="number"
+                        placeholder="uniformity"
+                        value={this.state.uniformity}
+                        onChange={this.handleInputChangeFor('uniformity')} />
+                    {conditionalButton}
                 </FormControl>
-                <Input
-                    type="text"
-                    placeholder="coffee name"
-                    value={this.state.coffee_name}
-                    onChange={this.handleInputChangeFor('coffee_name')} />
-                <Input
-                    type="number"
-                    placeholder="overall"
-                    value={this.state.overall}
-                    onChange={this.handleInputChangeFor('overall')} />
-                <Input
-                    type="number"
-                    placeholder="aroma"
-                    value={this.state.aroma}
-                    onChange={this.handleInputChangeFor('aroma')} />
-                <Input
-                    type="number"
-                    placeholder="flavor"
-                    value={this.state.flavor}
-                    onChange={this.handleInputChangeFor('flavor')} />
-                <Input
-                    type="number"
-                    placeholder="aftertaste"
-                    value={this.state.aftertaste}
-                    onChange={this.handleInputChangeFor('aftertaste')} />
-                <Input
-                    type="number"
-                    placeholder="acidity"
-                    value={this.state.acidity}
-                    onChange={this.handleInputChangeFor('acidity')} />
-                <Input
-                    type="number"
-                    placeholder="sweetness"
-                    value={this.state.sweetness}
-                    onChange={this.handleInputChangeFor('sweetness')} />
-                <Input
-                    type="number"
-                    placeholder="mouthfeel"
-                    value={this.state.mouthfeel}
-                    onChange={this.handleInputChangeFor('mouthfeel')} />
-                <Input
-                    type="number"
-                    placeholder="balance"
-                    value={this.state.balance}
-                    onChange={this.handleInputChangeFor('balance')} />
-                <Input
-                    type="number"
-                    placeholder="clean cup"
-                    value={this.state.clean_cup}
-                    onChange={this.handleInputChangeFor('clean_cup')} />
-                <Input
-                    type="number"
-                    placeholder="uniformity"
-                    value={this.state.uniformity}
-                    onChange={this.handleInputChangeFor('uniformity')} />
-                {conditionalButton}
-            </FormControl>
+            </Container>
         )
     }
 }

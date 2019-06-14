@@ -5,7 +5,7 @@ import ImageList from '../ImageList/ImageList';
 import 'bulma/css/bulma.css';
 import './KCMO.css'
 
-class KCHomePage extends Component {
+class HomePage extends Component {
   componentDidMount() {
     this.props.dispatch({
       type: 'GET_ALL_SHOPS',
@@ -14,12 +14,14 @@ class KCHomePage extends Component {
   render() {
     return (
       <div>
-        <div className= "hero is-large bg-img">
-        <div className="hero-body">
-          <div className="container">
-            <h1 className="shadow-text title has-text-white has-text-centered"> Welcome to Kansas City</h1>
+        <div className="hero is-large bg-img">
+          <div className="hero-body">
+            <div className="container">
+              <h1 className="shadow-text title has-text-white has-text-centered">
+                Welcome to <br/> Kansas City
+            </h1>
+            </div>
           </div>
-        </div>
         </div>
         <ImageList />
       </div>
@@ -29,4 +31,4 @@ class KCHomePage extends Component {
 
 
 
-export default connect(mapReduxStateToProps)(KCHomePage)
+export default connect(mapReduxStateToProps)(HomePage)

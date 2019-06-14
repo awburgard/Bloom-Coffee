@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {AppBar,Toolbar, Typography, useScrollTrigger} from '@material-ui/core';
+import { AppBar, Toolbar, Typography, useScrollTrigger, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
@@ -30,28 +30,54 @@ function ElevateAppBar(props) {
       <ElevationScroll {...props}>
         <AppBar >
           <Toolbar>
-            <Typography className="nav-left" variant="h6">Bloom Coffee</Typography>
-            <div className="nav-right">
-              <Link className="nav-link" to="/home">
-                {/* Show this link if they are logged in or not,
+            <Grid container alignItems="center">
+              <Grid item xs={7}>
+                <Typography variant="h4" component="h6">Bloom Coffee</Typography>
+              </Grid>
+              <Grid item xs={5}>
+                <Grid container spacing={1} justify="flex-end" alignItems="center">
+                  <Grid item>
+                    <Link to="/home">
+                      {/* Show this link if they are logged in or not,
                  but call this link 'Home' if they are logged in,
                   and call this link 'Login / Register' if they are not */}
-                {props.reduxState.user.user_id ? 'Home' : 'Login / Register'}
-              </Link>
-              {/* Show the link to the info page and the logout button if the user is logged in */}
-              {props.reduxState.user.user_id && (
-                <>
-                  <LogOutButton className="nav-link" />
-                  <Link className="nav-link" to="/tasting-journal-main">
-                    Tasting Journal
-              </Link>
-                </>
-              )}
-              {/* Always show this link since the about page is not protected */}
-              <Link className="nav-link" to="/about">
-                About
-            </Link>
-            </div>
+                      <Typography>{props.reduxState.user.user_id ? 'Home' : 'Login / Register'}</Typography>
+                    </Link>
+                  </Grid>
+
+                  {/* Show the link to the info page and the logout button if the user is logged in */}
+                  <Grid item>
+                    {props.reduxState.user.user_id && (
+                      <>
+                        <Grid item>
+                          <LogOutButton />
+                        </Grid>
+                        <Grid>
+                        <Link to="/tasting-journal-main">
+                          <Typography>Tasting Journal</Typography>
+                        </Link>
+                        </Grid>
+                      </>
+                    )}
+                  </Grid>
+                  <Grid item>
+                    {!props.reduxState.user.user_id && (
+                      <>
+                        <Link onClick={() => { props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }} to="/home">
+                          <Typography>Tasting Journal</Typography>
+                        </Link>
+                      </>
+                    )}
+                  </Grid>
+                  {/* Always show this link since the Home page is not protected */}
+                  <Grid item>
+                    <Link to="/kansas-city">
+                      <Typography>Home</Typography>
+                    </Link>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
           </Toolbar>
         </AppBar>
       </ElevationScroll>

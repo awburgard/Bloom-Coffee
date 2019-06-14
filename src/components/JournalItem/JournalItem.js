@@ -34,19 +34,19 @@ class JournalItem extends Component {
                     <div>
                         <p>{this.props.coffeeShopName}</p>
                         <p>{this.props.entry.coffee_name}</p>
-                        <p>{this.props.entry.overall}</p>
-                        <p>{this.props.entry.aroma}</p>
-                        <p>{this.props.entry.aftertaste}</p>
-                        <p>{this.props.entry.acidity}</p>
-                        <p>{this.props.entry.sweetness}</p>
-                        <p>{this.props.entry.mouthfeel}</p>
-                        <p>{this.props.entry.balance}</p>
-                        <p>{this.props.entry.clean_cup}</p>
-                        <p>{this.props.entry.uniformity}</p>
-                        <p>{this.props.entry.description}</p>
-                        <Button onClick={this.deleteEntry}><DeleteIcon />Delete</Button>
-                        <Button onClick={this.editEntry}>Edit</Button>
+                        <p>Overall: {this.props.entry.overall}</p>
+                        <p>Aroma: {this.props.entry.aroma}</p>
+                        <p>Aftertaste: {this.props.entry.aftertaste}</p>
+                        <p>Acidity: {this.props.entry.acidity}</p>
+                        <p>Sweetness: {this.props.entry.sweetness}</p>
+                        <p>Mouthfeel: {this.props.entry.mouthfeel}</p>
+                        <p>Balance: {this.props.entry.balance}</p>
+                        <p>Clean Cup: {this.props.entry.clean_cup}</p>
+                        <p>Uniformity: {this.props.entry.uniformity}</p>
+                        <p>Description: {this.props.entry.description}</p>
                     </div>
+                    <Button onClick={this.deleteEntry}><DeleteIcon />Delete</Button>
+                    <Button onClick={this.editEntry}>Edit</Button>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         )

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
+import { FormControl, Typography, Input, Container, Grid, List } from '@material-ui/core';
+import 'bulma/css/bulma.css'
 
 class LoginPage extends Component {
   state = {
@@ -29,60 +32,53 @@ class LoginPage extends Component {
     });
   }
 
+
   render() {
     return (
-      <div>
-        {this.props.errors.loginMessage && (
-          <h2
-            className="alert"
-            role="alert"
-          >
-            {this.props.errors.loginMessage}
-          </h2>
-        )}
+      <Container>
         <form onSubmit={this.login}>
-          <h1>Login</h1>
-          <div>
-            <label htmlFor="username">
+          <Typography variant="h3" gutterBottom marked="center" align="center">
+            Sign In
+            </Typography>
+          <FormControl>
+            <Typography variant="h6" gutterBottom htmlFor="username">
               Username:
-              <input
-                type="text"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="password">
-              Password:
-              <input
-                type="password"
-                name="password"
-                value={this.state.password}
-                onChange={this.handleInputChangeFor('password')}
-              />
-            </label>
-          </div>
-          <div>
-            <input
-              className="log-in"
-              type="submit"
-              name="submit"
-              value="Log In"
+              </Typography>
+            <Input
+              required
+              type="text"
+              name="username"
+              value={this.state.username}
+              onChange={this.handleInputChangeFor('username')}
             />
-          </div>
+          </FormControl>
+          <Typography variant="h6" gutterBottom htmlFor="password">
+            Password:
+            </Typography>
+          <FormControl>
+            <Input
+              required
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleInputChangeFor('password')}
+            />
+          </FormControl>
+          <Button
+            align="center"
+            underline="always"
+            type="submit"
+            name="submit"
+            value="Log In"
+          > Log In
+          </Button>
         </form>
-        <center>
-          <button
-            type="button"
-            className="link-button"
-            onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
-          >
+        <Typography variant="body2"  gutterBottom align="center">
+          <Button onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }} align="center" underline="always">
             Register
-          </button>
-        </center>
-      </div>
+              </Button>
+        </Typography>
+        </Container>
     );
   }
 }

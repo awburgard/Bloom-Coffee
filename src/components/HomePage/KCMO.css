@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
 
 .bg-img {
     background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/kcmo.jpg");
@@ -10,5 +10,5 @@
 
 .shadow-text {
     font-size: 125px;
-    font-family: 'Rock Salt', cursive;
+    font-family: 'Permanent Marker', cursive;
 }

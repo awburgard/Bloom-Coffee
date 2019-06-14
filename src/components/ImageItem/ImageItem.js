@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
 import { withStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { Dialog , DialogContent , DialogTitle, ButtonBase, Typography, Button } from '@material-ui/core/';
+import { Dialog, DialogContent, DialogTitle, ButtonBase, Typography, Button } from '@material-ui/core/';
 
 
 const styles = (theme: Theme) => createStyles({
@@ -84,7 +84,7 @@ class ImageItem extends Component {
         show: false,
     }
 
-    handleDialouge = () => {
+    handleDialog = () => {
         this.setState({
             show: true,
         })
@@ -104,7 +104,7 @@ class ImageItem extends Component {
                     key={this.props.shop.shop_name}
                     className={this.props.classes.image}
                     focusVisibleClassName={this.props.classes.focusVisible}
-                    onClick={this.handleDialouge}
+                    onClick={this.handleDialog}
                     style={{
                         width: `100%`,
                     }}
@@ -133,9 +133,11 @@ class ImageItem extends Component {
                 <Dialog open={this.state.show} onClose={this.handleClose}>
                     <DialogTitle>Address</DialogTitle>
                     <DialogContent>
-                        {this.props.shop.shop_address}
                         <Button>
-                            <a href={this.props.shop.shop_link}>Visit</a>
+                            <a href={this.props.shop.shop_address} target="_blank">Visit</a>
+                        </Button>
+                        <Button>
+                            <a href={this.props.shop.shop_link} target="_blank">Website</a>
                         </Button>
                     </DialogContent>
                 </Dialog>
