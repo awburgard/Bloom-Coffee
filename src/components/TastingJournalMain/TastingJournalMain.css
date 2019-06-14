@@ -1,6 +1,6 @@
 .tasting-bg-img {
-    background-image: linear-gradient( rgba(242, 205, 136, 0.5), rgba(0, 0, 0, 0.5)), url("/images/topography.png");
-    background-position: center right;
+    background-image: linear-gradient( rgba(242, 205, 136, 0.5), rgba( 64, 64, 64, 0.5)), url("/images/topography.png");
+    background-position: center center;
     background-repeat: repeat;
     background-attachment: fixed;
 }

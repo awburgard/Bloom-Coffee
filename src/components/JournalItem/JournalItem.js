@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Button } from '@material-ui/core';
+import { ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetails, Button, Grid } from '@material-ui/core';
 
 
 
@@ -25,28 +25,57 @@ class JournalItem extends Component {
     }
     render() {
         return (
-            <ExpansionPanel expanded={this.props.expanded === `panel${this.props.index}`} onChange={this.props.panelChange(`panel${this.props.index}`)}>
+            <ExpansionPanel color="secondary" expanded={this.props.expanded === `panel${this.props.index}`} onChange={this.props.panelChange(`panel${this.props.index}`)}>
                 <ExpansionPanelSummary>
                     {this.props.coffeeShopName} &nbsp;
                 {this.props.entry.coffee_name}
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    <div>
-                        <p>{this.props.coffeeShopName}</p>
-                        <p>{this.props.entry.coffee_name}</p>
-                        <p>Overall: {this.props.entry.overall}</p>
-                        <p>Aroma: {this.props.entry.aroma}</p>
-                        <p>Aftertaste: {this.props.entry.aftertaste}</p>
-                        <p>Acidity: {this.props.entry.acidity}</p>
-                        <p>Sweetness: {this.props.entry.sweetness}</p>
-                        <p>Mouthfeel: {this.props.entry.mouthfeel}</p>
-                        <p>Balance: {this.props.entry.balance}</p>
-                        <p>Clean Cup: {this.props.entry.clean_cup}</p>
-                        <p>Uniformity: {this.props.entry.uniformity}</p>
-                        <p>Description: {this.props.entry.description}</p>
-                    </div>
-                    <Button onClick={this.deleteEntry}><DeleteIcon />Delete</Button>
-                    <Button onClick={this.editEntry}>Edit</Button>
+                    <Grid container spacing={3} alignItems="center">
+                        <Grid item >
+                            <p>Coffee Shop: {this.props.coffeeShopName}</p>
+                        </Grid>
+                        <Grid item>
+                            <p>Coffee: {this.props.entry.coffee_name}</p>
+                        </Grid>
+                        <Grid item>
+                            <p>Overall: {this.props.entry.overall}</p>
+                        </Grid>
+                        <Grid item>
+                            <p>Aroma: {this.props.entry.aroma}</p>
+                        </Grid>
+                        <Grid item>
+                            <p>Aftertaste: {this.props.entry.aftertaste}</p>
+                        </Grid>
+                        <Grid item>
+                            <p>Acidity: {this.props.entry.acidity}</p>
+                        </Grid>
+                        <Grid item>
+                            <p>Sweetness: {this.props.entry.sweetness}</p>
+                        </Grid>
+
+                        <Grid item>
+                            <p>Mouthfeel: {this.props.entry.mouthfeel}</p>
+                        </Grid>
+                        <Grid item>
+                            <p>Balance: {this.props.entry.balance}</p>
+                        </Grid>
+                        <Grid item>
+                            <p>Clean Cup: {this.props.entry.clean_cup}</p>
+                        </Grid>
+                        <Grid item>
+                            <p>Uniformity: {this.props.entry.uniformity}</p>
+                        </Grid>
+                        <Grid item>
+                            <p>Description: {this.props.entry.description}</p>
+                        </Grid>
+                        <Grid item>
+                            <Button onClick={this.deleteEntry} color="primary"><DeleteIcon />Delete</Button>
+                        </Grid>
+                        <Grid item>
+                            <Button onClick={this.editEntry}>Edit</Button>
+                        </Grid>
+                    </Grid>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         )

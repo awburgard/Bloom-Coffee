@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
 
 .landing-bg-img {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/full-bloom.png");
+    background-image: linear-gradient( rgba(64, 1, 1, 0.5), rgba(102, 115, 83, 0.5)), url("/images/full-bloom.png");
     background-position: center center;
     background-repeat: repeat;
     background-attachment: fixed;
 }
+
 
 .text-markup {
     font-size: 125px;

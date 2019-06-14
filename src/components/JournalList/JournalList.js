@@ -5,6 +5,9 @@ import JournalItem from '../JournalItem/JournalItem';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import { withRouter } from 'react-router-dom';
+import Grid from '@material-ui/core/Grid'
+import './List.css';
+import { Container } from '@material-ui/core';
 
 class JournalList extends Component {
     state = {
@@ -25,19 +28,27 @@ class JournalList extends Component {
             })
             coffeeShopName = coffeeShopName[0].shop_name
             return (
-                <JournalItem
-                    key={index}
-                    entry={entry}
-                    coffeeShopName={coffeeShopName}
-                    panelChange={this.panelChange}
-                    index={index}
-                    expanded={this.state.expanded} />
+                <Grid item xs={6}>
+                    <JournalItem
+                        key={index}
+                        entry={entry}
+                        coffeeShopName={coffeeShopName}
+                        panelChange={this.panelChange}
+                        index={index}
+                        expanded={this.state.expanded} />
+                </Grid>
             )
         })
         return (
-            <div>
-                {journalEntries}
-                <Button onClick={this.addEntry}><AddIcon />Add</Button>
+            <div className="hero list-bg-img">
+                <div className="hero-body">
+                <Container>
+                    <Grid container>
+                        {journalEntries}
+                        <Button onClick={this.addEntry} color="secondary"><AddIcon />Add</Button>
+                    </Grid>
+                </Container>
+                </div>
             </div>
         )
     }
