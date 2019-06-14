@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Button from '@material-ui/core/Button'
+import {Button, Grid, Paper, Input, Typography} from '@material-ui/core'
+import FormGroup from '@material-ui/core/FormGroup';
 
 class RegisterPage extends Component {
   state = {
@@ -36,7 +37,9 @@ class RegisterPage extends Component {
 
   render() {
     return (
-      <div>
+      <FormGroup>
+      <Grid container spacing={3}>
+        <Grid item>
         {this.props.errors.registrationMessage && (
           <h2
             className="alert"
@@ -46,11 +49,11 @@ class RegisterPage extends Component {
           </h2>
         )}
         <form onSubmit={this.registerUser}>
-          <h1>Register User</h1>
+          <Typography variant="h3" gutterBottom marked="center" align="center">Register</Typography>
           <div>
             <label htmlFor="username">
               Username:
-              <input
+              <Input
                 type="text"
                 name="username"
                 value={this.state.username}
@@ -61,7 +64,7 @@ class RegisterPage extends Component {
           <div>
             <label htmlFor="password">
               Password:
-              <input
+              <Input
                 type="password"
                 name="password"
                 value={this.state.password}
@@ -72,7 +75,7 @@ class RegisterPage extends Component {
           <div>
             <label htmlFor="first_name">
               First Name:
-              <input
+              <Input
                 type="text"
                 name="first_name"
                 value={this.state.first_name}
@@ -83,7 +86,7 @@ class RegisterPage extends Component {
           <div>
             <label htmlFor="last_name">
               Last Name:
-              <input
+              <Input
                 type="text"
                 name="last_name"
                 value={this.state.last_name}
@@ -92,7 +95,7 @@ class RegisterPage extends Component {
             </label>
           </div>
           <div>
-            <input
+            <Input
               className="register"
               type="submit"
               name="submit"
@@ -100,16 +103,15 @@ class RegisterPage extends Component {
             />
           </div>
         </form>
-        <center>
           <Button
             type="button"
-            className="link-button"
             onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
           >
             Login
           </Button>
-        </center>
-      </div>
+        </Grid>
+      </Grid>
+      </FormGroup>
     );
   }
 }

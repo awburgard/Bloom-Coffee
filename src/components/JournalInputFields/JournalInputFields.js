@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
-import { TextField, Select, MenuItem, FormControl, InputLabel, Container, } from '@material-ui/core';
+import { TextField, Select, MenuItem, Grid, } from '@material-ui/core';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import { withRouter } from 'react-router-dom';
@@ -32,7 +32,6 @@ class JournalInputFields extends Component {
 
 
     handleInputChangeFor = propertyName => (event) => {
-        console.log(event.target)
         this.setState({
             [propertyName]: event.target.value,
         });
@@ -106,13 +105,17 @@ class JournalInputFields extends Component {
             )
         })
         return (
-                <Container>
+                <Grid container spacing={2}>
+                    <Grid item xs={12}>
+                        <Grid item={6}>
                         <Select
                             type="text"
                             value={this.state.coffee_shop_id}
                             onChange={this.handleInputChangeFor('coffee_shop_id')}>
                             {shopOptions}
                         </Select>
+                        </Grid>
+                        <Grid item={6}>
                     <TextField
                         id="standard-name"
                         placeholder="description"
@@ -122,6 +125,7 @@ class JournalInputFields extends Component {
                         value={this.state.description}
                         onChange={this.handleInputChangeFor('description')}>
                     </TextField>
+                    </Grid>
                     <Input
                         type="text"
                         placeholder="coffee name"
@@ -178,7 +182,8 @@ class JournalInputFields extends Component {
                         value={this.state.uniformity}
                         onChange={this.handleInputChangeFor('uniformity')} />
                     {conditionalButton}
-                </Container>
+                    </Grid>
+                </Grid>
         )
     }
 }

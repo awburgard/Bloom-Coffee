@@ -22,53 +22,54 @@ class EntryInfoDialog extends Component {
             <Dialog open={this.props.show} onClose={this.props.handleClose} fullWidth={true}>
                 <DialogTitle>Entry</DialogTitle>
                 {this.state.editing ?
-                <DialogContent>
-                    <JournalInputFields editing={this.state.editing} initialData={this.props.entry} handleClose={this.props.handleClose} />
-                </DialogContent>
-                :
-                <DialogContent>
-                    <Grid container alignItems="center">
-                        <Grid item xs={4}>
-                            <Typography>{this.props.coffeeShopName}</Typography>
+                    <DialogContent>
+                        <JournalInputFields editing={this.state.editing} initialData={this.props.entry} handleClose={this.props.handleClose} />
+                    </DialogContent>
+                    :
+                    <DialogContent>
+                        <Grid container spacing={3}>
+                            <Grid item xs={12}>
+                                    <Grid item xs={6}>
+                                        <Typography>{this.props.coffeeShopName}</Typography>
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <Typography>Overall: {this.props.entry.overall}</Typography>
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <Typography>Aroma: {this.props.entry.aroma}</Typography>
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <Typography>Aftertaste: {this.props.entry.aftertaste}</Typography>
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <Typography>Acidity: {this.props.entry.acidity}</Typography>
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <Typography>Sweetness: {this.props.entry.sweetness}</Typography>
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <Typography>Mouthfeel: {this.props.entry.mouthfeel}</Typography>
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <Typography>Balance: {this.props.entry.balance}</Typography>
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <Typography>Clean Cup: {this.props.entry.clean_cup}</Typography>
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <Typography>Uniformity: {this.props.entry.uniformity}</Typography>
+                                    </Grid>
+                                    <Grid item xs={6}>
+                                        <Typography>Description: {this.props.entry.description}</Typography>
+                                    </Grid>
+                                </Grid>
                         </Grid>
-                        <Grid item xs={4}>
-                            <Typography>Overall: {this.props.entry.overall}</Typography>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Typography>Aroma: {this.props.entry.aroma}</Typography>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Typography>Aftertaste: {this.props.entry.aftertaste}</Typography>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Typography>Acidity: {this.props.entry.acidity}</Typography>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Typography>Sweetness: {this.props.entry.sweetness}</Typography>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Typography>Mouthfeel: {this.props.entry.mouthfeel}</Typography>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Typography>Balance: {this.props.entry.balance}</Typography>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Typography>Clean Cup: {this.props.entry.clean_cup}</Typography>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Typography>Uniformity: {this.props.entry.uniformity}</Typography>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <Typography>Description: {this.props.entry.description}</Typography>
-                        </Grid>
-                        <Grid item xs={4}>
+                        <div>
                             <Button onClick={this.props.deleteEntry} color="primary"><DeleteIcon /></Button>
                             <Button onClick={this.editEntry}>Edit</Button>
-                        </Grid>
-                    </Grid>
-                </DialogContent>
+                        </div>
+                    </DialogContent>
                 }
-                
             </Dialog>
         )
     }
