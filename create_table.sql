@@ -1,9 +1,10 @@
-CREATE TABLE "users" (
-	"user_id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL,
-    "first_name" VARCHAR (80) NOT NULL,
-    "last_name" VARCHAR (120) NOT NULL
+CREATE TABLE users (
+    "user_id" SERIAL PRIMARY KEY,
+    "username" VARCHAR(80) NOT NULL UNIQUE,
+    "password" VARCHAR(1000) NOT NULL,
+    "first_name" VARCHAR(80) NOT NULL,
+    "last_name" VARCHAR(120) NOT NULL,
+    "home_city" INT DEFAULT 1 REFERENCES "cities"".city_id"
 );
 
 CREATE TABLE "cities" (
@@ -16,9 +17,10 @@ CREATE TABLE "cities" (
 CREATE TABLE "coffee_shop" (
 	"coffee_shop_id" SERIAL PRIMARY KEY,
     "shop_name" VARCHAR (80) NOT NULL,
-    "shop_address" VARCHAR (120) NOT NULL,
+    "shop_address" TEXT [] UNIQUE NOT NULL,
     "city_id" INT REFERENCES "cities",
-    "shop_logo" VARCHAR (60) NOT NULL
+    "shop_logo" VARCHAR (60) NOT NULL,
+    "shop_link" VARCHAR (120) NOT NULL,
 );
 
 CREATE TABLE "tasting_journal" (

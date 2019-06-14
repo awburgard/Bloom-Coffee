@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
-import { TextField, Select, MenuItem, FormControl, InputLabel, Container } from '@material-ui/core';
+import { TextField, Select, MenuItem, FormControl, InputLabel, Container, } from '@material-ui/core';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import { withRouter } from 'react-router-dom';
@@ -61,7 +61,7 @@ class JournalInputFields extends Component {
                 uniformity: this.state.uniformity,
             }
         })
-        this.props.history.push('/tasting-journal-main')
+        this.props.history.push('tasting-journal-main')
     };
 
 
@@ -90,7 +90,7 @@ class JournalInputFields extends Component {
                 uniformity: this.state.uniformity,
             }
         })
-        this.props.history.push('/tasting-journal-main')
+        this.props.handleClose();
     }
 
     render() {
@@ -105,21 +105,16 @@ class JournalInputFields extends Component {
             )
         })
         return (
-            <Container>
-                <FormControl>
-                    <FormControl>
-                        <InputLabel>Coffee Shop Name</InputLabel>
+                <Container>
                         <Select
                             type="text"
                             value={this.state.coffee_shop_id}
-                            placeholder="coffee shop name"
                             onChange={this.handleInputChangeFor('coffee_shop_id')}>
                             {shopOptions}
                         </Select>
-                    </FormControl>
                     <TextField
                         id="standard-name"
-                        placeholder="overall"
+                        placeholder="description"
                         name="message"
                         rows="10"
                         cols="30"
@@ -182,8 +177,7 @@ class JournalInputFields extends Component {
                         value={this.state.uniformity}
                         onChange={this.handleInputChangeFor('uniformity')} />
                     {conditionalButton}
-                </FormControl>
-            </Container>
+                </Container>
         )
     }
 }

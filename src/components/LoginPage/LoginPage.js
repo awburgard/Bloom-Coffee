@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
-import { FormControl, Typography, Input, Container, Grid, List } from '@material-ui/core';
+import { FormControl, Typography, Input, Container } from '@material-ui/core';
 import 'bulma/css/bulma.css'
 
 class LoginPage extends Component {

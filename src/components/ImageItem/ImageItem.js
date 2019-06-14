@@ -134,10 +134,10 @@ class ImageItem extends Component {
                     <DialogTitle>Info</DialogTitle>
                     <DialogContent>
                         <Button>
-                            <a href={this.props.shop.shop_address} target="_blank">Visit</a>
+                            <a href={this.props.shop.shop_address} target="_blank" rel="noreferrer">Visit</a>
                         </Button>
                         <Button>
-                            <a href={this.props.shop.shop_link} target="_blank">Website</a>
+                            <a href={this.props.shop.shop_link} target="_blank" rel="noreferrer">Website</a>
                         </Button>
                     </DialogContent>
                 </Dialog>
