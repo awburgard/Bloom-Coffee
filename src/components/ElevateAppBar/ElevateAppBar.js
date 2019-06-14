@@ -33,10 +33,10 @@ function ElevateAppBar(props) {
         <AppBar >
           <Toolbar>
             <Grid container alignItems="center">
-              <Grid item xs={7}>
+              <Grid item xs={6}>
                 <Typography variant="h4" component="h6">Bloom Coffee</Typography>
               </Grid>
-              <Grid item xs={5}>
+              <Grid item xs={6}>
                 <Grid container spacing={1} justify="flex-end" alignItems="center">
                   <Grid item>
                     <Link to="/home">
@@ -48,20 +48,18 @@ function ElevateAppBar(props) {
                   </Grid>
 
                   {/* Show the link to the info page and the logout button if the user is logged in */}
-                  <Grid item>
                     {props.reduxState.user.user_id && (
                       <>
                         <Grid item>
                           <LogOutButton/>
                         </Grid>
-                        <Grid item xs={1}>
+                        <Grid item>
                         <Link to="/tasting-journal-main">
                           <Typography>Tasting Journal</Typography>
                         </Link>
                         </Grid>
                       </>
                     )}
-                  </Grid>
                   <Grid item>
                     {!props.reduxState.user.user_id && (
                       <>

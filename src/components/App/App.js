@@ -17,8 +17,9 @@ import LoginPage from '../LoginPage/LoginPage';
 import ElevateAppBar from '../ElevateAppBar/ElevateAppBar';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
-import './App.css';
+// import './App.css';
 import LandingPage from '../LandingPage/LandingPage';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 const theme = createMuiTheme({
   palette: {
@@ -45,6 +46,7 @@ class App extends Component {
         <React.Fragment>
           <CssBaseline>
             <Router>
+              <ScrollToTop>
               <ElevateAppBar />
               <Switch>
                 {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
@@ -95,6 +97,7 @@ class App extends Component {
                 <Route render={() => <h1>404</h1>} />
               </Switch>
               <Footer />
+              </ScrollToTop>
             </Router>
           </CssBaseline>
         </React.Fragment >
