@@ -9,11 +9,9 @@ class Slider extends Component {
                 <Typography id="discrete-slider" gutterBottom>
                 </Typography>
                 <Slider
-                    defaultValue={20}
-                    getAriaValueText={valuetext}
-                    aria-labelledby="discrete-slider"
+                    defaultValue={10}
                     valueLabelDisplay="auto"
-                    step={10}
+                    step={1}
                     marks
                 />
             </div>
