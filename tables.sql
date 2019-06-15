@@ -67,3 +67,6 @@ VALUES ('Messenger Coffee Co.','1', 'images/messenger.jpg', '1624 Grand Blvd', '
 ('Made in KC Cafe', '1', 'images/made.jpg', '1114 Baltimore Avenue ,306 W. 47th St', 'https://www.mikccafe.com/'),
 ('Broadway Cafe and Roasting', '1',	'images/broadway.jpg', '4106 Broadway', 'http://broadwayroasting.com/'),
 ('Parisi Cafe', '1', 'images/parisi.jpg',' 30 W Pershing Rd #100', 'https://parisicoffee.com/');
+
+INSERT INTO "cities" ("city_name", "zip_code", "picture_path")
+VALUES ('Kansas City', '64108,64111,64101,64109,64131,64112,64114,66202,66219,66205,64113,66209,66203,64116,64118,66204,64152,64124,64068,66215,64063,64106,66213,64105', 'images/kcmo.jpg');
