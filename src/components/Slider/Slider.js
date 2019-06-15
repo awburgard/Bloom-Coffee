@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
+import {Typography} from '@material-ui/core'
 
 class Slider extends Component {
     render() {
         return (
-            <div className={classes.root}>
+            <div>
                 <Typography id="discrete-slider" gutterBottom>
                 </Typography>
                 <Slider

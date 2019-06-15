@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Grid, Typography, Button } from '@material-ui/core';
+import { Dialog, DialogTitle, DialogContent, Grid, Typography, Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import JournalInputFields from '../JournalInputFields/JournalInputFields';
 

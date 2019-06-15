@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
-import DeleteIcon from '@material-ui/icons/Delete';
 import { withStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { Dialog, DialogContent, DialogTitle, ButtonBase, Typography, Button, Grid } from '@material-ui/core/';
+import { ButtonBase, Typography } from '@material-ui/core/';
 import EntryInfoDialog from '../EntryInfoDialog/EntryInfoDialog';
 import EntryEditDialog from '../EntryEditDialog/EntryEditDialog';
 
