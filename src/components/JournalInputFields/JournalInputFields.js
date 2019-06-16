@@ -146,7 +146,7 @@ class JournalInputFields extends Component {
                         <Input
                             fullWidth={true}
                             type="number"
-                            placeholder="overall"
+                            placeholder="overall (1-10)"
                             value={this.state.overall}
                             onChange={this.handleInputChangeFor('overall')} />
                     </Grid>
@@ -154,7 +154,7 @@ class JournalInputFields extends Component {
                         <Input
                             fullWidth={true}
                             type="number"
-                            placeholder="aroma"
+                            placeholder="aroma (1-10)"
                             value={this.state.aroma}
                             onChange={this.handleInputChangeFor('aroma')} />
                     </Grid>
@@ -162,7 +162,7 @@ class JournalInputFields extends Component {
                         <Input
                             fullWidth={true}
                             type="number"
-                            placeholder="flavor"
+                            placeholder="flavor (1-10)"
                             value={this.state.flavor}
                             onChange={this.handleInputChangeFor('flavor')} />
                     </Grid>
@@ -170,7 +170,7 @@ class JournalInputFields extends Component {
                         <Input
                             fullWidth={true}
                             type="number"
-                            placeholder="aftertaste"
+                            placeholder="aftertaste (1-10)"
                             value={this.state.aftertaste}
                             onChange={this.handleInputChangeFor('aftertaste')} />
                     </Grid>
@@ -178,7 +178,7 @@ class JournalInputFields extends Component {
                         <Input
                             fullWidth={true}
                             type="number"
-                            placeholder="acidity"
+                            placeholder="acidity (1-10)"
                             value={this.state.acidity}
                             onChange={this.handleInputChangeFor('acidity')} />
                     </Grid>
@@ -186,7 +186,7 @@ class JournalInputFields extends Component {
                         <Input
                             fullWidth={true}
                             type="number"
-                            placeholder="sweetness"
+                            placeholder="sweetness (1-10)"
                             value={this.state.sweetness}
                             onChange={this.handleInputChangeFor('sweetness')} />
                     </Grid>
@@ -194,7 +194,7 @@ class JournalInputFields extends Component {
                         <Input
                             fullWidth={true}
                             type="number"
-                            placeholder="mouthfeel"
+                            placeholder="mouthfeel (1-10)"
                             value={this.state.mouthfeel}
                             onChange={this.handleInputChangeFor('mouthfeel')} />
                     </Grid>
@@ -202,7 +202,7 @@ class JournalInputFields extends Component {
                         <Input
                             fullWidth={true}
                             type="number"
-                            placeholder="balance"
+                            placeholder="balance (1-10)"
                             value={this.state.balance}
                             onChange={this.handleInputChangeFor('balance')} />
                     </Grid>
@@ -210,7 +210,7 @@ class JournalInputFields extends Component {
                         <Input
                             fullWidth={true}
                             type="number"
-                            placeholder="clean cup"
+                            placeholder="clean cup (1-10)"
                             value={this.state.clean_cup}
                             onChange={this.handleInputChangeFor('clean_cup')} />
                     </Grid>
@@ -218,7 +218,7 @@ class JournalInputFields extends Component {
                         <Input
                             fullWidth={true}
                             type="number"
-                            placeholder="uniformity"
+                            placeholder="uniformity (1-10)"
                             value={this.state.uniformity}
                             onChange={this.handleInputChangeFor('uniformity')} />
                     </Grid>
