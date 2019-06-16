@@ -95,6 +95,7 @@ class JournalItem extends Component {
             payload: this.props.entry.tasting_journal_id,
         })
         this.props.history.push(`/tasting-journal-edit-form/?entry=${this.props.entry.tasting_journal_id}`)
+        this.handleClose();
     }
 
     deleteEntry = (event) => {
@@ -120,6 +121,7 @@ class JournalItem extends Component {
                     })
                 }
             })
+            this.handleClose();
     }
 
 handleDialog = () => {
