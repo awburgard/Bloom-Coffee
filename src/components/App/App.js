@@ -14,8 +14,6 @@ import AddEntryForm from '../AddEntryForm/AddEntryForm';
 import TastingJournalEditPage from '../TastingJournalEditPage/TastingJournalEditPage';
 import ElevateAppBar from '../ElevateAppBar/ElevateAppBar';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
-
-// import './App.css';
 import LandingPage from '../LandingPage/LandingPage';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
 

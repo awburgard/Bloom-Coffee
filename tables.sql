@@ -42,31 +42,31 @@ CREATE TABLE "tasting_journal" (
     "uniformity" INTEGER
 );
 
-INSERT INTO "coffee_shop" ("shop_name", 'city_id', "shop_logo", "shop_address", "shop_link")
-VALUES ('Messenger Coffee Co.','1', 'images/messenger.jpg', '1624 Grand Blvd', 'https://messengercoffee.co/'),
-('Oddly Correct', '1','images/oddly.jpg', '3940 Main St', "https://oddlycorrect.com/"),
-('Blip Roasters', '1', 'images/blip.jpg', '1101 Mulberry St,1106 E 30th St', 'http://www.bliproasters.com/'),
-('Crows Coffee', '1', 'images/crows.jpg', '535 E. Red Bridge Road,304 E. 51st Street, 7440 Washington Street', 'https://crowscoffee.com/'),
-('Filling Station', '1', 'images/filling.jpg', '2980 McGee Trafficway,7420 Johnson Dr,1010 Westport Rd,2460 E Pershing Rd', 'https://fillingstationcoffee.com/'),
-('Monarch Coffee', '1', 'images/monarch.jpg', '3550 Broadway Blvd', 'https://www.monarchcoffeekc.com/'),
-('The Roasterie', '1', 'images/roasterie.jpg', '4223 Main Street,8750 Penrose Ln,2401 Gillham Rd,2250 W. 47th Pl,1828 Walnut St.,Suite 102,2663 Southwest Blvd,6223 Brookside Blvd,4511 119th St,1204 W 27th Street', 'https://www.theroasterie.com/'),
-('Second Best Coffee', '1', 'images/second.jpg', '328 w. 85th street', 'http://www.secondbestcoffee.com/'),
-('Cafe Equinox', '1', 'images/equinox.jpg', '7036 Nieman Rd', 'https://www.familytreenursery.com/cafe-equinox.html'),
-('PTs Coffee Roasting Co', '1', 'images/pt.jpg', '310 Southwest Blvd', 'https://www.ptscoffee.com/'),
-('Colony KC', '1', 'images/colony.jpg', '312 Armour Rd', 'http://www.colonykc.com/'),
-('Headrush Roasters Coffee & Tea', '1', 'images/headrush.jpg', '7108 N. Oak Trafficway, 4115 N. Mulberry Dr.', 'https://www.headrushroasters.com/'),
-('Homers Coffee House', '1', 'images/homer.jpg', '7126 West 80th Street', 'http://homerscoffeehouse.com/'),
-('Parkville Coffee', '1', 'images/parkville.jpg', '103 Main St', 'https://parkvillecoffee.com/'),
-('Eleos Coffee', '1', 'images/eleos.jpg', '3401 Independence Ave' 'https://www.eleoscoffee.com/'),
-('Hammerhand Coffee', '1', 'images/hammerhand.jpg', '22 North Main Street',	'https://www.hammerhand.coffee/'),
-('Blackdog Coffee House', '1', 'images/blackdog.jpg', '12815 W 87th St Pkwy',' http://www.bdcoffeehouse.com/'),
-('Post Coffee Co.',	'1', 'images/post.jpg', '200 NE Chipman Rd',' http://www.postcoffeecompany.com/'),
-('Vested Coffee', '1',' images/vested.jpg',' 310 West 8th Street', 'https://www.vested.coffee/'),
-('Pilgrim Coffee Co.', '1', 'images/pilgrim.jpg', '12643 Metcalf Ave.', 'https://pilgrimcoffeecompany.com/'),
-('Quay Coffee', '1', 'images/quay.jpg', '412 Delaware St, 4525 Oak Street',	'https://www.quaycoffee.com/'),
-('Made in KC Cafe', '1', 'images/made.jpg', '1114 Baltimore Avenue ,306 W. 47th St', 'https://www.mikccafe.com/'),
-('Broadway Cafe and Roasting', '1',	'images/broadway.jpg', '4106 Broadway', 'http://broadwayroasting.com/'),
-('Parisi Cafe', '1', 'images/parisi.jpg',' 30 W Pershing Rd #100', 'https://parisicoffee.com/');
+INSERT INTO "coffee_shop" ("shop_name", 'city_id', "shop_logo", "shop_link")
+VALUES ('Messenger Coffee Co.','1', 'images/messenger.jpg',  'https://messengercoffee.co/'),
+('Oddly Correct', '1','images/oddly.jpg', "https://oddlycorrect.com/"),
+('Blip Roasters', '1', 'images/blip.jpg',  'http://www.bliproasters.com/'),
+('Crows Coffee', '1', 'images/crows.jpg', 'https://crowscoffee.com/'),
+('Filling Station', '1', 'images/filling.jpg', 'https://fillingstationcoffee.com/'),
+('Monarch Coffee', '1', 'images/monarch.jpg', 'https://www.monarchcoffeekc.com/'),
+('The Roasterie', '1', 'images/roasterie.jpg', 'https://www.theroasterie.com/'),
+('Second Best Coffee', '1', 'images/second.jpg', 'http://www.secondbestcoffee.com/'),
+('Cafe Equinox', '1', 'images/equinox.jpg', 'https://www.familytreenursery.com/cafe-equinox.html'),
+('PTs Coffee Roasting Co', '1', 'images/pt.jpg', 'https://www.ptscoffee.com/'),
+('Colony KC', '1', 'images/colony.jpg', 'http://www.colonykc.com/'),
+('Headrush Roasters Coffee & Tea', '1', 'images/headrush.jpg', 'https://www.headrushroasters.com/'),
+('Homers Coffee House', '1', 'images/homer.jpg', 'http://homerscoffeehouse.com/'),
+('Parkville Coffee', '1', 'images/parkville.jpg', 'https://parkvillecoffee.com/'),
+('Eleos Coffee', '1', 'images/eleos.jpg', 'https://www.eleoscoffee.com/'),
+('Hammerhand Coffee', '1', 'images/hammerhand.jpg',	'https://www.hammerhand.coffee/'),
+('Blackdog Coffee House', '1', 'images/blackdog.jpg','http://www.bdcoffeehouse.com/'),
+('Post Coffee Co.',	'1', 'images/post.jpg','http://www.postcoffeecompany.com/'),
+('Vested Coffee', '1',' images/vested.jpg', 'https://www.vested.coffee/'),
+('Pilgrim Coffee Co.', '1', 'images/pilgrim.jpg', 'https://pilgrimcoffeecompany.com/'),
+('Quay Coffee', '1', 'images/quay.jpg', 'https://www.quaycoffee.com/'),
+('Made in KC Cafe', '1', 'images/made.jpg', 'https://www.mikccafe.com/'),
+('Broadway Cafe and Roasting', '1',	'images/broadway.jpg','http://broadwayroasting.com/'),
+('Parisi Cafe', '1', 'images/parisi.jpg', 'https://parisicoffee.com/');
 
 INSERT INTO "cities" ("city_name", "zip_code", "picture_path")
-VALUES ('Kansas City', '64108,64111,64101,64109,64131,64112,64114,66202,66219,66205,64113,66209,66203,64116,64118,66204,64152,64124,64068,66215,64063,64106,66213,64105', 'images/kcmo.jpg');
+VALUES ('Kansas City', {'64108,64111,64101,64109,64131,64112,64114,66202,66219,66205,64113,66209,66203,64116,64118,66204,64152,64124,64068,66215,64063,64106,66213,64105'}, 'images/kcmo.jpg');

@@ -8,6 +8,7 @@ import { withRouter } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid'
 import './List.css';
 import EntryEditDialog from '../EntryEditDialog/EntryEditDialog';
+import Typography from '@material-ui/core/Typography'
 
 class JournalList extends Component {
     state = {
@@ -34,19 +35,21 @@ class JournalList extends Component {
                         coffeeShopName={coffeeShopName}
                         panelChange={this.panelChange}
                         index={index}
-                        />
+                    />
                 </Grid>
             )
         })
         return (
             <div className="hero list-bg-img">
                 <div className="hero-body">
-                <Button onClick={this.addEntry} size="large" color="secondary"><AddIcon />ADD</Button>
+                    <Typography align="center" gutterBottom>
+                        <Button onClick={this.addEntry} size="large" variant="outlined" color="secondary"><AddIcon />ADD</Button>
+                    </Typography>
                     <Grid container>
                         {journalEntries}
                     </Grid>
                     <EntryEditDialog show={this.props.reduxState.entryEditDialogShowReducer}
-                    handleAddToggle={this.addEntry}/>
+                        handleAddToggle={this.addEntry} />
                 </div>
             </div>
         )
