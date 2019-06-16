@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
 import { Dialog, DialogTitle, DialogContent, Grid, Typography, Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
+import CreateIcon from '@material-ui/icons/Create';
 import JournalInputFields from '../JournalInputFields/JournalInputFields';
 
 
@@ -28,7 +29,7 @@ class EntryInfoDialog extends Component {
                     :
                     <DialogContent>
                         <Grid container spacing={2}>
-                            <Grid item xs={6}>
+                            <Grid item xs={12}>
                                 <Typography>{this.props.coffeeShopName}</Typography>
                             </Grid>
                             <Grid item xs={6}>
@@ -64,7 +65,7 @@ class EntryInfoDialog extends Component {
                         </Grid>
                         <div>
                             <Button onClick={this.props.deleteEntry} color="primary"><DeleteIcon /></Button>
-                            <Button onClick={this.editEntry}>Edit</Button>
+                            <Button onClick={this.editEntry}><CreateIcon/></Button>
                         </div>
                     </DialogContent>
                 }

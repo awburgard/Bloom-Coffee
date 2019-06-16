@@ -4,6 +4,8 @@ import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
 import { TextField, Select, MenuItem, Grid, } from '@material-ui/core';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
+import Save from '@material-ui/icons/Save';
+import AddIcon from '@material-ui/icons/Add'
 import { withRouter } from 'react-router-dom';
 
 
@@ -98,9 +100,9 @@ class JournalInputFields extends Component {
     }
 
     render() {
-        let conditionalButton = <Button onClick={this.addEntry}>Add Entry</Button>
+        let conditionalButton = <Button onClick={this.addEntry}><AddIcon/></Button>
         if (this.props.editing === true) {
-            conditionalButton = <Button onClick={this.updateEntry}>Update Entry</Button>
+            conditionalButton = <Button onClick={this.updateEntry}><Save/></Button>
         }
 
         const shopOptions = this.props.reduxState.setCoffeeShops.map((shop, index) => {
