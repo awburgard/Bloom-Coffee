@@ -5,7 +5,6 @@ import { TextField, Select, MenuItem, Grid, } from '@material-ui/core';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import { withRouter } from 'react-router-dom';
-import Slider from '@material-ui/lab/Slider';
 
 
 class JournalInputFields extends Component {

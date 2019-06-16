@@ -6,6 +6,7 @@ import { withStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { ButtonBase, Typography } from '@material-ui/core/';
 import EntryInfoDialog from '../EntryInfoDialog/EntryInfoDialog';
 import EntryEditDialog from '../EntryEditDialog/EntryEditDialog';
+import swal from 'sweetalert';
 
 
 const styles = (theme: Theme) => createStyles({
@@ -97,71 +98,88 @@ class JournalItem extends Component {
     }
 
     deleteEntry = (event) => {
-        this.props.dispatch({
-            type: 'DELETE_ENTRY',
-            payload: this.props.entry.tasting_journal_id
+        swal({
+            Title: 'Are you sure?',
+            text: 'This will delete your item',
+            icon: 'warning',
+            buttons: ["Oh no!", "Aww yeah!"],
+            dangerMode: true,
         })
-        this.handleClose();
+            .then((willDelete) => {
+                if (willDelete) {
+                    this.props.dispatch({
+                        type: 'DELETE_ENTRY',
+                        payload: this.props.entry.tasting_journal_id
+                    })
+                    swal('Poof! Your entry has been remove!', {
+                        icon: 'success',
+                    });
+                } else {
+                    swal('Your entry is safe!',{
+                        icon: 'info',
+                    })
+                }
+            })
     }
 
-    handleDialog = () => {
-        this.setState({
-            showInfo: true,
-        })
-    }
+handleDialog = () => {
+    this.setState({
+        showInfo: true,
+    })
+}
 
-    handleClose = () => {
-        this.setState({
-            showInfo: false,
-        })
-    }
+handleClose = () => {
+    this.setState({
+        showInfo: false,
+    })
+}
 
-    handleAddToggle = () => {
-        this.props.dispatch({
-            type: 'ENTRY_EDIT_DIALOG_SHOW'
-        })
-    }
+handleAddToggle = () => {
+    this.props.dispatch({
+        type: 'ENTRY_EDIT_DIALOG_SHOW'
+    })
+}
 
-    render() {
-        return (
-            <div>
-                <ButtonBase
-                    focusRipple
-                    key={this.props.entry.index}
-                    className={this.props.classes.image}
-                    focusVisibleClassName={this.props.classes.focusVisible}
-                    onClick={this.handleDialog}
+render() {
+    return (
+        <div>
+            <ButtonBase
+                focusRipple
+                key={this.props.entry.index}
+                className={this.props.classes.image}
+                focusVisibleClassName={this.props.classes.focusVisible}
+                onClick={this.handleDialog}
+                style={{
+                    width: `100%`,
+                }}
+            >
+                <span className={this.props.classes.imageSrc}
                     style={{
-                        width: `100%`,
+                        backgroundImage: `url(${this.props.entry.shop_logo})`
                     }}
                 >
-                    <span className={this.props.classes.imageSrc}
-                        style={{
-                            backgroundImage: `url(${this.props.entry.shop_logo})`
-                        }}
+
+                </span>
+
+                <span className={this.props.classes.imageBackdrop} />
+                <span className={this.props.classes.imageButton}>
+                    <Typography
+                        component="span"
+                        variant="subtitle1"
+                        color="inherit"
+                        className={this.props.classes.imageTitle}
                     >
+                        {this.props.entry.coffee_name}
+                        <span className={this.props.classes.imageMarked} />
+                    </Typography>
+                </span>
+            </ButtonBase>
+            <EntryInfoDialog editEntry={this.editEntry} deleteEntry={this.deleteEntry} show={this.state.showInfo} entry={this.props.entry} handleClose={this.handleClose} coffeeShopName={this.props.coffeeShopName} />
+            <EntryEditDialog show={this.props.reduxState.entryEditDialogShowReducer} entry={this.props.entry} handleAddToggle={this.handleAddToggle} coffeeShopName={this.props.coffeeShopName} />
 
-                    </span>
-
-                    <span className={this.props.classes.imageBackdrop} />
-                    <span className={this.props.classes.imageButton}>
-                        <Typography
-                            component="span"
-                            variant="subtitle1"
-                            color="inherit"
-                            className={this.props.classes.imageTitle}
-                        >
-                            {this.props.entry.coffee_name}
-                            <span className={this.props.classes.imageMarked} />
-                        </Typography>
-                    </span>
-                </ButtonBase>
-                <EntryInfoDialog editEntry={this.editEntry} deleteEntry={this.deleteEntry} show={this.state.showInfo} entry={this.props.entry} handleClose={this.handleClose} coffeeShopName={this.props.coffeeShopName}/>
-                <EntryEditDialog show={this.props.reduxState.entryEditDialogShowReducer} entry={this.props.entry} handleAddToggle={this.handleAddToggle} coffeeShopName={this.props.coffeeShopName}/>
-
-            </div>
-        )
-    }
+        </div>
+    )
+}
 }
 
 export default withRouter(connect(mapReduxStateToProps)((withStyles(styles)(JournalItem))));
