@@ -4,8 +4,8 @@ import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
 import { TextField, Select, MenuItem, Grid, } from '@material-ui/core';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
-import Slider from '@material-ui/lab/Slider';
 import { withRouter } from 'react-router-dom';
+import Slider from '@material-ui/lab/Slider';
 
 
 class JournalInputFields extends Component {
@@ -144,7 +144,7 @@ class JournalInputFields extends Component {
                             onChange={this.handleInputChangeFor('coffee_name')} />
                     </Grid>
                     <Grid item xs={6}>
-                        <Slider
+                        <Input
                             fullWidth={true}
                             type="number"
                             placeholder="overall"
