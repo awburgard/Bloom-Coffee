@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const sessionMiddleware = require('./modules/sessionmiddleware');
+// const sessionMiddleware = require('./modules/sessionmiddleware');
 const passport = require('./strategies/user.strategy');
 
 const port = process.env.PORT || 5000;
