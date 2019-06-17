@@ -5,7 +5,7 @@ import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
 import { withStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { ButtonBase, Typography } from '@material-ui/core/';
 import EntryInfoDialog from '../EntryInfoDialog/EntryInfoDialog';
-import EntryEditDialog from '../EntryEditDialog/EntryEditDialog';
+import AddEntryDialog from '../AddEntryDialog/AddEntryDialog';
 import swal from 'sweetalert';
 
 
@@ -177,7 +177,7 @@ render() {
                 </span>
             </ButtonBase>
             <EntryInfoDialog editEntry={this.editEntry} deleteEntry={this.deleteEntry} show={this.state.showInfo} entry={this.props.entry} handleClose={this.handleClose} coffeeShopName={this.props.coffeeShopName} />
-            <EntryEditDialog show={this.props.reduxState.entryEditDialogShowReducer} entry={this.props.entry} handleAddToggle={this.handleAddToggle} coffeeShopName={this.props.coffeeShopName} />
+            <AddEntryDialog show={this.props.reduxState.AddEntryDialogShowReducer} entry={this.props.entry} handleAddToggle={this.handleAddToggle} coffeeShopName={this.props.coffeeShopName} />
 
         </div>
     )
