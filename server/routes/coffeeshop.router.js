@@ -18,7 +18,8 @@ router.get('/', (req, res) => {
 
 router.get('/city/:id', (req, res) => {
     const queryString = `SELECT * FROM "coffee_shop"
-                        WHERE "city_id" = $1`;
+                        WHERE "city_id" = $1
+                        ORDER BY "shop_name" ASC;`;
 
     pool.query(queryString, [req.params.id])
         .then((response) => {

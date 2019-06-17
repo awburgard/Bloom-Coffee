@@ -68,5 +68,6 @@ VALUES ('Messenger Coffee Co.','1', 'images/messenger.jpg',  'https://messengerc
 ('Broadway Cafe and Roasting', '1',	'images/broadway.jpg','http://broadwayroasting.com/'),
 ('Parisi Cafe', '1', 'images/parisi.jpg', 'https://parisicoffee.com/');
 
-INSERT INTO "cities" ("city_name", "zip_code", "picture_path")
-VALUES ('Kansas City', {'64108,64111,64101,64109,64131,64112,64114,66202,66219,66205,64113,66209,66203,64116,64118,66204,64152,64124,64068,66215,64063,64106,66213,64105'}, 'images/kcmo.jpg');
+INSERT INTO "cities"("city_id","city_name","zipcode","picture_path")
+VALUES
+('Kansas City','{64108,64111,64101,64109,64131,64112,64114,66202,66219,66205,64113,66209,66203,64116,64118,66204,64152,64124,64068,66215,64063,64106,66213,64105}','images/kcmo.jpg');

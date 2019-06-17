@@ -14,17 +14,28 @@ class EntryInfoDialog extends Component {
 
     editEntry = (event) => {
         this.setState({
-            editing: !this.state.editing
+            editing: true,
         })
+    }
+
+    stopEditing = () => {
+        this.setState({
+            editing: false,
+        })
+    }
+
+    closeLocal = (event) => {
+        this.stopEditing();
+        this.props.handleClose();
     }
 
     render() {
         return (
-            <Dialog open={this.props.show} onClose={this.props.handleClose} fullWidth={true} maxWidth={"lg"}>
+            <Dialog open={this.props.show} onClose={this.closeLocal} fullWidth={true} maxWidth={"lg"}>
                 <DialogTitle>Entry</DialogTitle>
                 {this.state.editing ?
                     <DialogContent>
-                        <JournalInputFields editing={this.state.editing} initialData={this.props.entry} handleClose={this.props.handleClose} />
+                        <JournalInputFields editing={this.state.editing} initialData={this.props.entry} handleClose={this.closeLocal} />
                     </DialogContent>
                     :
                     <DialogContent>
