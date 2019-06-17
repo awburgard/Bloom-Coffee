@@ -34,7 +34,9 @@ function ElevateAppBar(props) {
             <Toolbar>
               <Grid container alignItems="center">
                 <Grid item xs={6}>
-                  <Typography variant="h4" component="h6">Bloom Coffee</Typography>
+                  <Link to="/kansas-city">
+                  <Typography  color="secondary" variant="h5" component="h5">Bloom Coffee</Typography>
+                  </Link>
                 </Grid>
                 <Grid item xs={6}>
                   <Grid container spacing={1} justify="flex-end" alignItems="center">
