@@ -48,7 +48,7 @@ class JournalList extends Component {
                     <Grid container>
                         {journalEntries}
                     </Grid>
-                    <AddEntryDialog show={this.props.reduxState.AddEntryDialogShowReducer}
+                    <AddEntryDialog show={this.props.reduxState.entryEditDialogShowReducer}
                         handleAddToggle={this.addEntry} />
                 </div>
             </div>
