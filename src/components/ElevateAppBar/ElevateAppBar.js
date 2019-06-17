@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AppBar, Toolbar, Typography, useScrollTrigger, Grid } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, useScrollTrigger, Grid} from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
@@ -35,7 +35,7 @@ function ElevateAppBar(props) {
               <Grid container alignItems="center">
                 <Grid item xs={6}>
                   <Link to="/kansas-city">
-                  <Typography  color="secondary" variant="h5" component="h5">Bloom Coffee</Typography>
+                      <Typography color="secondary" variant="h5" component="h5">Bloom Coffee</Typography>
                   </Link>
                 </Grid>
                 <Grid item xs={6}>
