@@ -7,7 +7,7 @@ import AddIcon from '@material-ui/icons/Add';
 import { withRouter } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid'
 import './List.css';
-import EntryEditDialog from '../EntryEditDialog/EntryEditDialog';
+import AddEntryDialog from '../AddEntryDialog/AddEntryDialog';
 import Typography from '@material-ui/core/Typography'
 
 class JournalList extends Component {
@@ -48,7 +48,7 @@ class JournalList extends Component {
                     <Grid container>
                         {journalEntries}
                     </Grid>
-                    <EntryEditDialog show={this.props.reduxState.entryEditDialogShowReducer}
+                    <AddEntryDialog show={this.props.reduxState.AddEntryDialogShowReducer}
                         handleAddToggle={this.addEntry} />
                 </div>
             </div>
