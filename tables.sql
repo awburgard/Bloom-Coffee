@@ -1,12 +1,3 @@
-CREATE TABLE users (
-    "user_id" SERIAL PRIMARY KEY,
-    "username" VARCHAR(80) NOT NULL UNIQUE,
-    "password" VARCHAR(1000) NOT NULL,
-    "first_name" VARCHAR(80) NOT NULL,
-    "last_name" VARCHAR(120) NOT NULL,
-    "home_city" INT DEFAULT 1 REFERENCES "cities"".city_id"
-);
-
 CREATE TABLE "cities" (
 	"city_id" SERIAL PRIMARY KEY,
     "city_name" VARCHAR (120) NOT NULL,
@@ -14,32 +5,16 @@ CREATE TABLE "cities" (
     "picture_path" VARCHAR (120) NOT NULL
 );
 
+INSERT INTO "cities"("city_id","city_name","zipcode","picture_path")
+VALUES
+('Kansas City','{64108,64111,64101,64109,64131,64112,64114,66202,66219,66205,64113,66209,66203,64116,64118,66204,64152,64124,64068,66215,64063,64106,66213,64105}','images/kcmo.jpg');
+
 CREATE TABLE "coffee_shop" (
 	"coffee_shop_id" SERIAL PRIMARY KEY,
     "shop_name" VARCHAR (80) NOT NULL,
-    "shop_address" TEXT [] UNIQUE NOT NULL,
     "city_id" INT REFERENCES "cities",
     "shop_logo" VARCHAR (60) NOT NULL,
     "shop_link" VARCHAR (120) NOT NULL,
-);
-
-CREATE TABLE "tasting_journal" (
-	"tasting_journal_id" SERIAL PRIMARY KEY,
-    "coffee_name" VARCHAR (120) NOT NULL,
-    "coffee_shop_name" INT REFERENCES "coffee_shop",
-    "date" DATE,
-    "user_id" INT REFERENCES "users",
-    "description" TEXT NOT NULL,
-    "overall" INTEGER,
-    "aroma" INTEGER,
-    "flavor" INTEGER,
-    "aftertaste" INTEGER,
-    "acidity" INTEGER,
-    "sweetness" INTEGER,
-    "mouthfeel" INTEGER,
-    "balance" INTEGER,
-    "clean_cup" INTEGER,
-    "uniformity" INTEGER
 );
 
 INSERT INTO "coffee_shop" ("shop_name", 'city_id', "shop_logo", "shop_link")
@@ -68,6 +43,32 @@ VALUES ('Messenger Coffee Co.','1', 'images/messenger.jpg',  'https://messengerc
 ('Broadway Cafe and Roasting', '1',	'images/broadway.jpg','http://broadwayroasting.com/'),
 ('Parisi Cafe', '1', 'images/parisi.jpg', 'https://parisicoffee.com/');
 
-INSERT INTO "cities"("city_id","city_name","zipcode","picture_path")
-VALUES
-('Kansas City','{64108,64111,64101,64109,64131,64112,64114,66202,66219,66205,64113,66209,66203,64116,64118,66204,64152,64124,64068,66215,64063,64106,66213,64105}','images/kcmo.jpg');
+CREATE TABLE "tasting_journal" (
+	"tasting_journal_id" SERIAL PRIMARY KEY,
+    "coffee_name" VARCHAR (120) NOT NULL,
+    "coffee_shop_name" INT REFERENCES "coffee_shop",
+    "date" DATE,
+    "user_id" INT REFERENCES "users",
+    "description" TEXT NOT NULL,
+    "overall" INTEGER,
+    "aroma" INTEGER,
+    "flavor" INTEGER,
+    "aftertaste" INTEGER,
+    "acidity" INTEGER,
+    "sweetness" INTEGER,
+    "mouthfeel" INTEGER,
+    "balance" INTEGER,
+    "clean_cup" INTEGER,
+    "uniformity" INTEGER
+);
+
+
+CREATE TABLE "users" (
+    "user_id" SERIAL PRIMARY KEY,
+    "username" VARCHAR(80) NOT NULL UNIQUE,
+    "password" VARCHAR(1000) NOT NULL,
+    "first_name" VARCHAR(80) NOT NULL,
+    "last_name" VARCHAR(120) NOT NULL,
+    "home_city" INT DEFAULT 1 REFERENCES "cities"".city_id"
+);
+
