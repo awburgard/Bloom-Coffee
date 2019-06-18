@@ -43,6 +43,16 @@ VALUES ('Messenger Coffee Co.','1', 'images/messenger.jpg',  'https://messengerc
 ('Broadway Cafe and Roasting', '1',	'images/broadway.jpg','http://broadwayroasting.com/'),
 ('Parisi Cafe', '1', 'images/parisi.jpg', 'https://parisicoffee.com/');
 
+
+CREATE TABLE "users" (
+    "user_id" SERIAL PRIMARY KEY,
+    "username" VARCHAR(80) NOT NULL UNIQUE,
+    "password" VARCHAR(1000) NOT NULL,
+    "first_name" VARCHAR(80) NOT NULL,
+    "last_name" VARCHAR(120) NOT NULL,
+    "home_city" INT DEFAULT 1 REFERENCES "cities"".city_id"
+);
+
 CREATE TABLE "tasting_journal" (
 	"tasting_journal_id" SERIAL PRIMARY KEY,
     "coffee_name" VARCHAR (120) NOT NULL,
@@ -62,13 +72,4 @@ CREATE TABLE "tasting_journal" (
     "uniformity" INTEGER
 );
 
-
-CREATE TABLE "users" (
-    "user_id" SERIAL PRIMARY KEY,
-    "username" VARCHAR(80) NOT NULL UNIQUE,
-    "password" VARCHAR(1000) NOT NULL,
-    "first_name" VARCHAR(80) NOT NULL,
-    "last_name" VARCHAR(120) NOT NULL,
-    "home_city" INT DEFAULT 1 REFERENCES "cities"".city_id"
-);
 
