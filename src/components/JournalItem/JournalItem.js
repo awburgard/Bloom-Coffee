@@ -177,7 +177,7 @@ render() {
                 </span>
             </ButtonBase>
             <EntryInfoDialog editEntry={this.editEntry} deleteEntry={this.deleteEntry} show={this.state.showInfo} entry={this.props.entry} handleClose={this.handleClose} coffeeShopName={this.props.coffeeShopName} />
-            <AddEntryDialog show={this.props.reduxState.AddEntryDialogShowReducer} entry={this.props.entry} handleAddToggle={this.handleAddToggle} coffeeShopName={this.props.coffeeShopName} />
+            <AddEntryDialog show={this.props.reduxState.entryEditDialogShow} entry={this.props.entry} handleAddToggle={this.handleAddToggle} coffeeShopName={this.props.coffeeShopName} />
 
         </div>
     )

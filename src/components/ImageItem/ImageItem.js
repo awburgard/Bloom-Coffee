@@ -132,7 +132,7 @@ class ImageItem extends Component {
                 </ButtonBase>
                 <Dialog open={this.state.show} onClose={this.handleClose}>
                     <DialogTitle id="simple-dialog-title">
-                        <Typography align="center" variant="h6"> Info</Typography>
+                        <Typography align="center"> Info</Typography>
                         </DialogTitle>
                     <DialogContent>
                         <Button >
