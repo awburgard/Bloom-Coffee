@@ -4,7 +4,7 @@
 Bloom Coffee is a specialty coffee app that uses Kansas City, MO as a test-market. The application displays the specialty coffee shops in KCMO, allows users to interact with the shops' websites, and register for an account, which allows them to use the app's tasting journal feature. The tasting jounral gives users the ability to log which coffee they enjoyed at which shop through 9 different variables. The user can edit their entries as well as delete them.
 
 ## Installation
-1. Create a database named 'bloom'
+1. Create a database named `bloom`
 2. Create the tables and insert the values from the tables.sql file
 3. Open up your editor of choice and run an npm install
 4. Run npm run server in your terminal
