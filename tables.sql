@@ -40,10 +40,6 @@ INSERT INTO coffee_shop(shop_name,city_id,shop_logo,shop_link) VALUES
 ,('Parisi Cafe',1,'images/parisi.jpg','https://parisicoffee.com/')
 ,('Splitlog Coffee Co',1,'images/split.jpg','https://www.splitlog.coffee/');
 
-SELECT * FROM "coffee_shop"
-JOIN "cities"
-ON "coffee_shop"."city_id" = "cities"."city_id";
-
 
 CREATE TABLE users(
    user_id    SERIAL PRIMARY KEY 
@@ -72,3 +68,6 @@ CREATE TABLE tasting_journal(
   ,uniformity         INTEGER  NOT NULL
 );
 
+SELECT * FROM "coffee_shop"
+JOIN "cities"
+ON "coffee_shop"."city_id" = "cities"."city_id";
