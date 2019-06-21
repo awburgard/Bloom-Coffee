@@ -15,7 +15,7 @@ class LandingPage extends Component {
         <div className="hero is-large landing-bg-img">
           <div className="hero-body">
             <div className="container">
-              <h1 className="text-markup title has-text-white has-text-centered">
+              <h1 className="landing-text title has-text-white has-text-centered">
                 Welcome to <br/> Bloom Coffee
             </h1>
             <h2 className="subtitle has-text-white has-text-centered">
@@ -27,7 +27,7 @@ class LandingPage extends Component {
         <div className="hero is-large is-dark about-bg-img">
           <div className="hero-body">
             <div className="container">
-              <h2 className="text-markup title has-text-white has-text-centered">
+              <h2 className="landing-text title has-text-white has-text-centered">
                 About
             </h2>
             <h2 className= "subtitle has-text-white has-text-centered">
@@ -39,7 +39,7 @@ class LandingPage extends Component {
         <div className="hero is-large use-bg-img">
           <div className="hero-body">
             <div className="container">
-              <h2 className="text-markup title has-text-dark has-text-centered">
+              <h2 className="landing-text title has-text-dark has-text-centered">
                 How to use the app
             </h2>
             <h2 className= "subtitle has-text-dark has-text-centered">

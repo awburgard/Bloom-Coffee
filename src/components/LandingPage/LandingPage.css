@@ -20,9 +20,23 @@
     background-attachment: fixed;
 }
 
+.landing-text {
+    font-size: 125px;
+    font-family: 'Permanent Marker', cursive;
+}
+
 .use-bg-img {
     background-image:url("/images/stripes-light.png");
     background-position: center center;
     background-repeat: repeat;
     background-attachment: fixed;
+}
+
+@media(max-width:780px){
+    .text-markup{
+        font-size: 79px;
+    }
+    .landing-text{
+        font-size: 50px;
+    }
 }

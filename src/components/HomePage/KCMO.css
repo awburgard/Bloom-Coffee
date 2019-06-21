@@ -12,3 +12,9 @@
     font-size: 125px;
     font-family: 'Permanent Marker', cursive;
 }
+
+@media(max-width: 780px){
+    .shadow-text{
+        font-size: 50px;
+    }
+}

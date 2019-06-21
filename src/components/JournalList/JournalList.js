@@ -28,7 +28,7 @@ class JournalList extends Component {
             })
             coffeeShopName = coffeeShopName[0].shop_name
             return (
-                <Grid item xs={4} key={index}>
+                <Grid item xs={12} md={4} key={index}>
                     <JournalItem
                         key={index}
                         entry={entry}
