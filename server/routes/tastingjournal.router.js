@@ -40,7 +40,45 @@ router.post('/', (req, res) => {
                         "aroma", "flavor", "aftertaste", "acidity", "sweetness",
                         "mouthfeel", "balance", "clean_cup", "uniformity")
                         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14);`;
-
+    if(req.body.coffee_name == ""){
+        req.body.coffee_name = 'coffee'
+    }
+    if(req.body.coffee_shop_id == "default"){
+        req.body.coffee_shop_id = 1;
+    }
+    if(req.body.description == ""){
+        req.body.description = 'yum!'
+    }
+    if(req.body.overall == ""){
+        req.body.overall = 5;
+    }
+    if(req.body.aroma == ""){
+        req.body.aroma = 5;
+    }
+    if(req.body.flavor == ""){
+        req.body.flavor = 5;
+    }
+    if(req.body.aftertaste == ""){
+        req.body.aftertaste = 5;
+    }
+    if(req.body.acidity == ""){
+        req.body.acidity = 5;
+    }
+    if(req.body.sweetness == ""){
+        req.body.sweetness = 5;
+    }
+    if(req.body.mouthfeel == ""){
+        req.body.mouthfeel = 5;
+    }
+    if(req.body.balance == ""){
+        req.body.balance = 5;
+    }
+    if(req.body.clean_cup == ""){
+        req.body.clean_cup = 5;
+    }
+    if(req.body.uniformity == ""){
+        req.body.uniformity = 5;
+    }
     pool.query(queryString, [req.body.coffee_name, req.body.coffee_shop_id, req.user.user_id, req.body.description,
     req.body.overall, req.body.aroma, req.body.flavor, req.body.aftertaste,
     req.body.acidity, req.body.sweetness, req.body.mouthfeel, req.body.balance,
