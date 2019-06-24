@@ -69,7 +69,7 @@ class LoginPage extends Component {
             </Grid>
             <Grid item xs={12}>
               <Button
-                fullWidth={'true'}
+                fullWidth={true}
                 type="submit"
                 name="submit"
                 value="Log In"
@@ -82,7 +82,7 @@ class LoginPage extends Component {
           <Grid item xs={12}>
             <Typography variant="body2" gutterBottom align="center">
               <Button
-                fullWidth={'true'}
+                fullWidth={true}
                 onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}>
                 Register
               </Button>

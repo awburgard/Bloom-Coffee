@@ -5,6 +5,8 @@ Bloom Coffee is a specialty coffee app that uses Kansas City, MO as a test-marke
 
 The tasting jounral gives users the ability to log which coffee they enjoyed at which shop through 9 different variables. The user can edit their entries as well as delete them.
 
+To see the fully functional site, please visit: [Bloom Coffee](https://guarded-lake-81471.herokuapp.com/#/landing)
+
 ## Installation
 1. Create a database named `bloom`,
 2. The queries in the `tables.sql` file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on [Postgres](https://www.postgresql.org/download/), so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries, 
