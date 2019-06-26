@@ -112,7 +112,7 @@ class JournalItem extends Component {
                         type: 'DELETE_ENTRY',
                         payload: this.props.entry.tasting_journal_id
                     })
-                    swal('Poof! Your entry has been remove!', {
+                    swal('Poof! Your entry has been removed!', {
                         icon: 'success',
                     });
                 } else {
