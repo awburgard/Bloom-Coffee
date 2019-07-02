@@ -29,5 +29,8 @@ If you have suggestions or issues, please email me at [awburgard@gmail.com](awbu
 ## Roadmap
 In future phases I plan on adding more cities and a Google API that links users to Google Maps which gives them exact directions
 
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
 ## Acknowledgement
 Thanks to [Prime Digital Academy](www.primeacademy.io) in Kansas City who equipped and helped me to make this application a reality.
