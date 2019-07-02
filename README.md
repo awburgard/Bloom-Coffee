@@ -23,9 +23,6 @@ To see the fully functional site, please visit: [Bloom Coffee](https://guarded-l
 5. If you want to delete or edit a post, click the post and use one of the buttons at the bottom left of the pop-up window,
 6. Enjoy all the coffee!
 
-## Support
-If you have suggestions or issues, please email me at [awburgard@gmail.com](awburgard@gmail.com)
-
 ## Roadmap
 In future phases I plan on adding more cities and a Google API that links users to Google Maps which gives them exact directions
 
@@ -34,3 +31,6 @@ In future phases I plan on adding more cities and a Google API that links users 
 
 ## Acknowledgement
 Thanks to [Prime Digital Academy](www.primeacademy.io) in Kansas City who equipped and helped me to make this application a reality.
+
+## Support
+If you have suggestions or issues, please email me at [awburgard@gmail.com](awburgard@gmail.com)
