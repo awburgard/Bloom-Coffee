@@ -33,7 +33,7 @@ const theme = createMuiTheme({
 class App extends Component {
   componentDidMount() {
     // this.props.dispatch({ type: 'FETCH_USER' });
-    this.props.dispatch({ type: 'GET_KC' });
+    // this.props.dispatch({ type: 'GET_KC' });
   }
 
   render() {
