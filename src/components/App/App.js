@@ -60,11 +60,6 @@ class App extends Component {
                   path="/landing"
                   component={LandingPage}
                 />
-                <Route
-                  exact
-                  path="/map"
-                  component={MapElement}
-                />
                 {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
                 <Route
