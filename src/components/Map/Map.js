@@ -21,30 +21,14 @@ class Map extends Component {
         }
     }
 
-    clickMarker = (message) => (event) => {
-        this.setState({
-            clicked: !this.state.clicked
-        })
-    }
 
     render() {
-        let toast = <div></div>;
-
-        if (this.state.clicked) {
-            toast = (
-                <div className="scotts-toast">
-                    HAIL HYDRA!
-                </div>
-            )
-        }
         const coffeeShops = this.props.reduxState.setCoffeeShops.map((shop, index) => {
             return (
-                <div className="test"
-                    onClick={this.clickMarker('Hail!')}
+                <div className="pin-holder"
                     lat={shop.lat} // Where should the marker go?
                     lng={shop.lng}
                 >
-                    {shop.shop_name}
                 </div>
             )
         })
@@ -53,8 +37,6 @@ class Map extends Component {
         return (
             // Important! Always set the container height explicitly
             <div style={{ height: '100vh', width: '100%' }}>
-
-                {toast}
 
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: process.env.GOOGLE_API }}
