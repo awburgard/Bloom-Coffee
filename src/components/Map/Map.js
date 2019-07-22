@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GoogleMapReact from 'google-map-react';
+import './Map.css';
 
 class Map extends Component {
 
@@ -27,16 +28,27 @@ class Map extends Component {
     }
 
     render() {
-
         let toast = <div></div>;
 
         if (this.state.clicked) {
             toast = (
-                <div>
+                <div className="scotts-toast">
                     HAIL HYDRA!
                 </div>
             )
         }
+        const coffeeShops = this.props.reduxState.setCoffeeShops.map((shop, index) => {
+            return (
+                <div className="test"
+                    onClick={this.clickMarker('Hail!')}
+                    lat={shop.lat} // Where should the marker go?
+                    lng={shop.lng}
+                >
+                    {shop.shop_name}
+                </div>
+            )
+        })
+
 
         return (
             // Important! Always set the container height explicitly
@@ -49,13 +61,7 @@ class Map extends Component {
                     defaultCenter={this.props.center}
                     defaultZoom={this.props.zoom}
                 >
-                    <div
-                       onClick={this.clickMarker('Hail!')}
-                        lat={39.0983261} // Where should the marker go?
-                        lng={-94.5783415}
-                    >
-                        Hail Enhydra
-                </div>
+                    {coffeeShops}
                 </GoogleMapReact>
             </div>
         );
