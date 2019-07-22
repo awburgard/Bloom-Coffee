@@ -28,6 +28,7 @@ class Map extends Component {
                 <div className="pin-holder"
                     lat={shop.lat} // Where should the marker go?
                     lng={shop.lng}
+                    key={index}
                 >
                 </div>
             )

@@ -16,7 +16,6 @@ import ElevateAppBar from '../ElevateAppBar/ElevateAppBar';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import LandingPage from '../LandingPage/LandingPage';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
-import MapElement from '../MapElement/MapElement';
 
 const theme = createMuiTheme({
   palette: {

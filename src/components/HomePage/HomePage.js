@@ -4,7 +4,7 @@ import mapReduxStateToProps from '../../Modules/mapReduxStateToProps'
 import ImageList from '../ImageList/ImageList';
 import 'bulma/css/bulma.css';
 import './KCMO.css'
-import MapElement from '../MapElement/MapElement';
+import Map from '../Map/Map';
 
 class HomePage extends Component {
   componentDidMount() {
@@ -24,7 +24,7 @@ class HomePage extends Component {
             </div>
           </div>
         </div>
-        <MapElement/>
+        <Map/>
         <ImageList />
       </div>
     )
