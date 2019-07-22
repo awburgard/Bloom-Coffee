@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GoogleMapReact from 'google-map-react';
-import './Map.css';
-
-// CHECK OUT https://developers.google.com/maps/documentation/javascript/tutorial
-// THERE IS GOOGLE CLOUD PLATFORM STUFF YOU ARE GOING TO NEED TO SET UP,
-// THE CODE WILL NOT WORK WITHOUT IT!
 
 class Map extends Component {
 
@@ -35,9 +30,9 @@ class Map extends Component {
 
         let toast = <div></div>;
 
-        if(this.state.clicked) {
+        if (this.state.clicked) {
             toast = (
-                <div className="scotts-toast">
+                <div>
                     HAIL HYDRA!
                 </div>
             )
@@ -47,23 +42,21 @@ class Map extends Component {
             // Important! Always set the container height explicitly
             <div style={{ height: '100vh', width: '100%' }}>
 
-            {toast}
+                {toast}
 
-            <GoogleMapReact
-                // Yo. This is my key. You need your own. This key will not work on your app.
-                // See above tutorial link!
-                bootstrapURLKeys={{ key: process.env.GOOGLE_API }}
-                defaultCenter={this.props.center}
-                defaultZoom={this.props.zoom}
-            >
-                <div
-                    className="test" onClick={this.clickMarker('Hail!')}
-                    lat={39.0983261} // Where should the marker go?
-                    lng={-94.5783415}
+                <GoogleMapReact
+                    bootstrapURLKeys={{ key: process.env.GOOGLE_API }}
+                    defaultCenter={this.props.center}
+                    defaultZoom={this.props.zoom}
                 >
-                    Hail Enhydra
+                    <div
+                       onClick={this.clickMarker('Hail!')}
+                        lat={39.0983261} // Where should the marker go?
+                        lng={-94.5783415}
+                    >
+                        Hail Enhydra
                 </div>
-            </GoogleMapReact>
+                </GoogleMapReact>
             </div>
         );
     }

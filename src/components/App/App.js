@@ -16,6 +16,7 @@ import ElevateAppBar from '../ElevateAppBar/ElevateAppBar';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import LandingPage from '../LandingPage/LandingPage';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
+import MapElement from '../MapElement/MapElement';
 
 const theme = createMuiTheme({
   palette: {
@@ -58,6 +59,11 @@ class App extends Component {
                   exact
                   path="/landing"
                   component={LandingPage}
+                />
+                <Route
+                  exact
+                  path="/map"
+                  component={MapElement}
                 />
                 {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
