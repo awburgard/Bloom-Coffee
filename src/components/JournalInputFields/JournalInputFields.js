@@ -100,7 +100,7 @@ class JournalInputFields extends Component {
     }
 
     render() {
-        let conditionalButton = <Button onClick={this.addEntry}><AddIcon/></Button>
+        let conditionalButton = <Button onClick={this.addEntry}><AddIcon/>Add</Button>
         if (this.props.editing === true) {
             conditionalButton = <Button onClick={this.updateEntry}><Save/></Button>
         }
