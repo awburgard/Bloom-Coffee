@@ -30,8 +30,6 @@ class EditEntryForm extends Component {
     }
 
     render (){
-        let content = <CircularProgress>LOADING</CircularProgress>;
-
         if (this.props.reduxState.setTastingJournalEntry
             && this.props.reduxState.setTastingJournalEntry.coffee_shop_id
         ) {
