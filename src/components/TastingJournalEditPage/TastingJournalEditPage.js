@@ -4,7 +4,6 @@ import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
 import { withRouter } from 'react-router-dom';
 import queryString from 'query-string';
 import JournalInputFields from '../JournalInputFields/JournalInputFields';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 class EditEntryForm extends Component {
     componentDidMount() {
