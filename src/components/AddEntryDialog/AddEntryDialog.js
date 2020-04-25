@@ -1,21 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../Modules/mapReduxStateToProps';
 import { Dialog, DialogTitle, DialogContent } from '@material-ui/core';
 import JournalInputFields from '../JournalInputFields/JournalInputFields';
 
 
-class AddEntryDialog extends Component {
-    render() {
-        return (
-            <Dialog open={this.props.show} onClose={this.props.handleAddToggle} maxWidth={"lg"} fullWidth={true}>
-                <DialogTitle>Add Journal Entry</DialogTitle>
-                <DialogContent>
-                    <JournalInputFields handleClose={this.props.handleAddToggle}/>
-                </DialogContent>
-            </Dialog>
-        )
-    }
+const AddEntryDialog = (props) => {
+    const { show, handleAddToggle } = props;
+    return (
+        <Dialog open={show} onClose={handleAddToggle} maxWidth={"lg"} fullWidth={true}>
+            <DialogTitle>Add Journal Entry</DialogTitle>
+            <DialogContent>
+                <JournalInputFields handleClose={handleAddToggle} />
+            </DialogContent>
+        </Dialog>
+    )
 }
 
 

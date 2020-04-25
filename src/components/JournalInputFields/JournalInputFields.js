@@ -7,7 +7,6 @@ import Button from '@material-ui/core/Button';
 import Save from '@material-ui/icons/Save';
 import AddIcon from '@material-ui/icons/Add'
 import { withRouter } from 'react-router-dom';
-import SliderComp from '../Slider/Slider';
 
 
 class JournalInputFields extends Component {
