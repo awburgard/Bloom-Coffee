@@ -86,57 +86,54 @@ class ImageItem extends Component {
 
     handleDialog = () => {
         this.setState({
-            show: true,
-        })
-    }
-
-    handleClose = () => {
-        this.setState({
-            show: false,
+            show: !this.state.show,
         })
     }
 
     render() {
+
+        const { classes, shop } = this.props;
+
         return (
-            <div className={this.props.classes.root}>
+            <div className={classes.root}>
                 <ButtonBase
                     focusRipple
-                    key={this.props.shop.shop_name}
-                    className={this.props.classes.image}
-                    focusVisibleClassName={this.props.classes.focusVisible}
+                    key={shop.shop_name}
+                    className={classes.image}
+                    focusVisibleClassName={classes.focusVisible}
                     onClick={this.handleDialog}
                     style={{
                         width: `100%`,
                     }}
                 >
-                    <span className={this.props.classes.imageSrc}
+                    <span className={classes.imageSrc}
                         style={{
-                            backgroundImage: `url(${this.props.shop.shop_logo})`
+                            backgroundImage: `url(${shop.shop_logo})`
                         }}
                     >
 
                     </span>
 
-                    <span className={this.props.classes.imageBackdrop} />
-                    <span className={this.props.classes.imageButton}>
+                    <span className={classes.imageBackdrop} />
+                    <span className={classes.imageButton}>
                         <Typography
                             component="span"
                             variant="subtitle1"
                             color="inherit"
-                            className={this.props.classes.imageTitle}
+                            className={classes.imageTitle}
                         >
-                            {this.props.shop.shop_name}
-                            <span className={this.props.classes.imageMarked} />
+                            {shop.shop_name}
+                            <span className={classes.imageMarked} />
                         </Typography>
                     </span>
                 </ButtonBase>
-                <Dialog open={this.state.show} onClose={this.handleClose}>
+                <Dialog open={this.state.show} onClose={this.handleDialog}>
                     <DialogTitle id="simple-dialog-title">
-                        <Typography align="center"> Info</Typography>
-                        </DialogTitle>
+                        <Typography align="center">{shop.shop_name}</Typography>
+                    </DialogTitle>
                     <DialogContent>
                         <Button >
-                            <a href={this.props.shop.shop_link} target="_blank" rel="noopener noreferrer">Website</a>
+                            <a href={shop.shop_link} target="_blank" rel="noopener noreferrer">Website</a>
                         </Button>
                     </DialogContent>
                 </Dialog>
